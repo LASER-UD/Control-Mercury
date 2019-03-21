@@ -1,0 +1,74 @@
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/CortexM3/ARM_GCC_541/Debug/main.o : C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/ADC.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/ADC_IRQ.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/ADC_theACLK.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/CLK.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/CyDmac.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/CyFlash.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/CyLib.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/CySpc.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/IRQRX.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/LED.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/LED_aliases.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Motor1.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Motor1_aliases.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Motor2.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Motor2_aliases.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/PWM.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Pin_ADC.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Pin_ADC_aliases.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/UART.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/UART_IntClock.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cmsis_armcc.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cmsis_compiler.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cmsis_gcc.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/core_cm3.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cyPm.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cydevice.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cydevice_trm.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cydisabledsheets.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cyfitter.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cypins.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cytypes.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/project.h C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/main.c 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/ADC.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/ADC_IRQ.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/ADC_theACLK.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/CLK.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/CyDmac.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/IRQRX.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/LED.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/LED_aliases.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Motor1.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Motor1_aliases.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Motor2.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Motor2_aliases.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/PWM.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Pin_ADC.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/Pin_ADC_aliases.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/UART.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/UART_IntClock.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cmsis_compiler.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cyfitter.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/Generated_Source/PSoC5/project.h : 
+
+C:/Users/nikod/Documents/PSoC\ Creator/Mercury/Prototipo.cydsn/main.c : 
+
