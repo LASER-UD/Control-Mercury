@@ -1,4 +1,4 @@
-C:\Users\nikod\Documents\PSoC Creator\Mercury\Prototipo.cydsn\TopDesign\TopDesign.cysch
+C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\TopDesign\TopDesign.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_v3_10\ADC_SAR_v3_10.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_v3_10\ADC_SAR_v3_10.pdf
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_v3_10\ADC_SAR_v3_10.cycdx
@@ -170,7 +170,7 @@ C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComp
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\UART_v2_50\Custom\Resources.resx
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v
-C:\Users\nikod\Documents\PSoC Creator\Mercury\Prototipo.cydsn\Prototipo.cydwr
+C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Prototipo.cydwr
 C:\Users\nikod\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.c
 C:\Users\nikod\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.h
 C:\Users\nikod\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cm3gcc.ld

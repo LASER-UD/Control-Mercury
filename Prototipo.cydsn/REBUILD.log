@@ -1,3 +1,7 @@
---------------- Rebuild Started: 03/20/2019 09:55:54 Project: main.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
---------------- Rebuild Succeeded: 03/20/2019 09:56:00 ---------------
+--------------- Rebuild Started: 03/25/2019 13:53:04 Project: Prototipo, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+Deleting file ".\Prototipo.rpt"
+cydsfit.exe -.appdatapath "C:\Users\nikod\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Prototipo.cyprj" -d CY8C5888LTI-LP097 -s "C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0052: error: Unable to find component "cy_boot_v5_80".
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Rebuild Failed: 03/25/2019 13:53:10 ---------------

@@ -245,7 +245,7 @@
     <Group key="v1">
       <Data key="cy_boot" value="cy_boot_v5_80" />
       <Data key="Em_EEPROM_Dynamic" value="Em_EEPROM_Dynamic_v2_20" />
-      <Data key="LIN_Dynamic" value="LIN_Dynamic_v4_0" />
+      <Data key="LIN_Dynamic" value="LIN_Dynamic_v5_0" />
     </Group>
   </Group>
   <Data key="DataVersionKey" value="2" />
@@ -255,6 +255,8 @@
       <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="Pin_ADC" />
       <Data key="a53bc6c3-64c8-4074-a1e3-a68e550bbda2" value="LED" />
       <Data key="c4aad95c-5f66-45c2-9355-1bd36f2a11ef" value="Motor2" />
+      <Data key="ccb1b5ae-f60a-4a31-a1f3-8702e833e9df" value="PIN_E" />
+      <Data key="de7ea0c3-26f2-49a6-b786-267610b52d40" value="Servo" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="Motor1" />
       <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="Tx_1" />
     </Group>
@@ -3363,6 +3365,16 @@
         <Data key="Port Format" value="2,3" />
       </Group>
     </Group>
+    <Group key="ccb1b5ae-f60a-4a31-a1f3-8702e833e9df">
+      <Group key="0">
+        <Data key="Port Format" value="2,5" />
+      </Group>
+    </Group>
+    <Group key="de7ea0c3-26f2-49a6-b786-267610b52d40">
+      <Group key="0">
+        <Data key="Port Format" value="2,4" />
+      </Group>
+    </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
       <Group key="0">
         <Data key="Port Format" value="2,2" />
@@ -3374,6 +3386,7 @@
       </Group>
     </Group>
     <Group key="UnAssigned Pins" />
+    <Group key="Unlocked Pins" />
   </Group>
   <Group key="PlaceDir">
     <Data key="count" value="0" />

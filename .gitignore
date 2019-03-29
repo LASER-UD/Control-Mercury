@@ -1,8 +1,8 @@
-
 # Created by https://www.gitignore.io/api/psoccreator
 # Edit at https://www.gitignore.io/?templates=psoccreator
 ### PSoCCreator ###
 
+Mercury.cywrk.nikod
 # Project Settings
 *.cywrk.*
 *.cyprj.*
