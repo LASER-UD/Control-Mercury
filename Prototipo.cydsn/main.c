@@ -3,8 +3,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define GP2Y0E_W        0x80
-#define GP2Y0E_R        0x81
+#define GP2Y0E          (0x80)>>1
 #define SHIFT_BYTE      0x02 //64 cm shift = 2 128 cm shift = 1
 #define SHIFT_ADDR      0x35
 #define DISTANCE_ADDR1  0x5E
@@ -23,32 +22,36 @@ char datai2c[2]={0,0};
 char distance_cm=0;
 
 
-void DS_begintx (void){
+void DS_beginread (void){
         do{
                 //Espera mienstras el esclavo le responde
-        }while(I2C_MasterSendStart(GP2Y0E_W, I2C_WRITE_XFER_MODE)!=I2C_MSTR_NO_ERROR);
+        }while(I2C_MasterSendStart(GP2Y0E, I2C_WRITE_XFER_MODE)!=I2C_MSTR_NO_ERROR);
 }
-
+void DS_beginwrite(void){
+        do{
+                //Espera mienstras el esclavo le responde
+    }while(I2C_MasterSendStart(GP2Y0E, I2C_READ_XFER_MODE)!=I2C_MSTR_NO_ERROR);
+}
 void DS_init(void){
     //Funcion de configuracion o de escritura de registros
-    DS_begintx();
-    I2C_MasterWriteByte(SHIFT_ADDR);//Direccion de registro de control  
-    I2C_MasterWriteByte(SHIFT_BYTE);//Registro de configuracion para ponerlo a 64 cm shift = 2 
+    DS_beginread();
+    I2C_MasterWriteByte(SHIFT_ADDR);//Pone direccion de memoria que quiere leer 
+    I2C_MasterSendStop(); 
+    DS_beginwrite();
+    sprintf(buffer,"shift %02X\n\r",I2C_MasterReadByte(I2C_NAK_DATA));//lo codifica en ascci
+    UART_PutString(buffer);
     I2C_MasterSendStop();
 }
 
-void DS_get_data(){        
-        DS_begintx();
-        I2C_MasterWriteByte(DISTANCE_ADDR1);//Pone direccion de memoria que quiere leer 
-        I2C_MasterSendRestart(GP2Y0E_R, I2C_READ_XFER_MODE); // Re transmite para obtener datos
-        datai2c[1]=I2C_MasterReadByte(I2C_NAK_DATA);
-        I2C_MasterSendStop();   
-        DS_begintx();
-        I2C_MasterWriteByte(DISTANCE_ADDR2);//Pone direccion de memoria que quiere leer 
-        I2C_MasterSendRestart(GP2Y0E_R, I2C_READ_XFER_MODE); // Re transmite para obtener datos
-        datai2c[1]=I2C_MasterReadByte(I2C_NAK_DATA);
-        I2C_MasterSendStop();
-        distance_cm = (datai2c[0]*16+datai2c[1])/64;//calculo de distancia
+void DS_get_data(){                   
+    DS_beginread();
+    I2C_MasterWriteByte(DISTANCE_ADDR1);//Pone direccion de memoria que quiere leer 
+    I2C_MasterSendStop(); 
+    DS_beginwrite();
+    datai2c[0]=I2C_MasterReadByte(I2C_NAK_DATA);//lo codifica en ascci
+    datai2c[1]=I2C_MasterReadByte(I2C_NAK_DATA);
+    I2C_MasterSendStop();
+    distance_cm = (datai2c[0]*16+datai2c[1])/64;//calculo de distancia
 }
 
 
@@ -207,7 +210,9 @@ int main(void)
     UART_PutString("set_panel_notes(,,,)\r\n");
     UART_PutString("run()\r\n");
     UART_PutString("*"\r\n);*/
+    UART_PutString("Iniciando\r\n");
     DS_init();//Inicia sensor de distancia
+
     for(;;)
     {
         if(banderag){
@@ -220,9 +225,9 @@ int main(void)
             banderag=false;
         }
         DS_get_data();     
-        CyDelay(500);
-        sprintf(buffer,"%d\n",distance_cm);//lo codifica en ascci
+        sprintf(buffer,"%d\n\r",distance_cm);//lo codifica en ascci
         UART_PutString(buffer);
+        CyDelay(500);
     }
 }
 
