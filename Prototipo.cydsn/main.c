@@ -212,7 +212,8 @@ int main(void)
     UART_PutString("*"\r\n);*/
     UART_PutString("Iniciando\r\n");
     DS_init();//Inicia sensor de distancia
-
+    //DS_beginread();
+    UART_PutString("Salio\r\n");
     for(;;)
     {
         if(banderag){
