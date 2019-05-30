@@ -39,8 +39,8 @@ void DS_init(void){
     I2C_MasterSendStop(); 
     DS_beginwrite();
     sprintf(buffer,"shift %02X\n\r",I2C_MasterReadByte(I2C_NAK_DATA));//lo codifica en ascci
-    UART_PutString(buffer);
     I2C_MasterSendStop();
+    UART_PutString(buffer);
 }
 
 void DS_get_data(){                   
@@ -53,6 +53,142 @@ void DS_get_data(){
     I2C_MasterSendStop();
     distance_cm = (datai2c[0]*16+datai2c[1])/64;//calculo de distancia
 }
+
+
+char DS_read(char adress){                   
+    char data;
+    DS_beginread();
+    I2C_MasterWriteByte(adress);//Pone direccion de memoria que quiere leer 
+    I2C_MasterSendStop(); 
+    DS_beginwrite();
+    data=I2C_MasterReadByte(I2C_NAK_DATA);//lo codifica en ascci
+    I2C_MasterSendStop();
+    return data;
+}
+
+void DS_write(char adress, char load){
+DS_beginwrite();
+I2C_MasterWriteByte(adress);
+I2C_MasterWriteByte(load);
+I2C_MasterSendStop();
+}
+
+static void e_fuse_stage1() {
+    DS_write(0xEC, 0xFF);
+    vpp_distance_Write(1);
+}
+
+/*
+ * (Fig.40 E-Fuse Program Flow)
+ * Stage 2
+ * Data=0x00 is set in Address=0xC8.
+ */
+void e_fuse_stage2() {
+
+    DS_write(0xC8, 0x00);
+}
+
+/*
+ * (Fig.40 E-Fuse Program Flow)
+ * Stage 3
+ * Data=0x45 is set in Address=0xC9.
+ * + programming bit #: 5 => 5 - 1 = 4
+ * + bank value: 5 => Bank E
+ */
+void e_fuse_stage3() {
+  
+    DS_write(0xC9, 0x45);
+}
+
+/*
+ * (Fig.40 E-Fuse Program Flow)
+ * Stage 4
+ * Data=0x01 is set in Address=0xCD.
+ * (Data=0x01 for slave address being changed to 0x10(write) and 0x11(read))
+ * @param new_address 0-15 (Default address is 8, 0x80 for writing and 0x81 for reading)
+ */
+void e_fuse_stage4(uint8_t new_address) {
+    
+    DS_write(0xCD, new_address);
+}
+
+/*
+ * (Fig.40 E-Fuse Program Flow)
+ * Stage 5
+ * Data=0x01 is set in Address=0xCA.
+ * Wait for 500us.
+ */
+void e_fuse_stage5() {
+   
+    DS_write(0xCA, 0x01);
+    CyDelay(500);
+}
+
+/*
+ * (Fig.40 E-Fuse Program Flow)
+ * Stage 6
+ * Data=0x00 is set in Address=0xCA.
+ * Vpp terminal is grounded.
+ */
+void e_fuse_stage6() {
+   
+    DS_write(0xCA, 0x00);
+    vpp_distance_Write(0);
+}
+
+/*
+ * (Fig.40 E-Fuse Program Flow)
+ * Stage 7
+ * Data=0x00 is set in Address=0xEF.
+ * Data=0x40 is set in Address=0xC8.
+ * Data=0x00 is set in Address=0xC8.
+ */
+void e_fuse_stage7() {
+   
+    DS_write(0xEF, 0x00);
+    DS_write(0xC8, 0x40);
+    DS_write(0xC8, 0x00);
+}
+
+/*
+ * (Fig.40 E-Fuse Program Flow)
+ * Stage 8
+ * Data=0x06 is set in Address=0xEE.
+ */
+void e_fuse_stage8() {
+   
+    DS_write(0xEE, 0x06);
+}
+
+/*
+ * (Fig.40 E-Fuse Program Flow)
+ * Stage 9
+ * Data=0xFF is set in Address=0xEC.
+ * Data=0x03 is set in Address=0xEF.
+ * Read out the data in Address=0x27.
+ * Data=0x00 is set in Address=0xEF.
+ * Data=0x7F is set in Address=0xEC.
+ *
+ * @return 0 for success, 1 for failure : 0x27[4:0] & 0b10000(0x10)
+ */
+uint8_t e_fuse_stage9() {
+   
+    // Table.20 List of E-Fuse program flow and setting value
+    DS_write(0xEF, 0x00); // add this though it's missing in 12-6 Example of E-Fuse Programming
+    DS_write(0xEC, 0xFF);
+    DS_write(0xEF, 0x03);
+    //const uint8_t check_value = _i2c_read(0x27);
+    //const uint8_t check = check_value & 0x1f;
+   
+    //const uint8_t success = check & 0x10;
+    // When lower 5bits data[4:0] is 00001, E-Fuse program is finished.
+    // When lower 5bits data[4:0] is not 00001, go to stage10(bit replacement).
+    DS_write(0xEF, 0x00);
+    DS_write(0xEC, 0x7F);
+    // Check Result
+    return success;
+}
+
 
 
 void TurnLefth(){//Giro Izquierda
@@ -228,7 +364,8 @@ int main(void)
         DS_get_data();     
         sprintf(buffer,"%d\n\r",distance_cm);//lo codifica en ascci
         UART_PutString(buffer);
-        CyDelay(500);
+        CyDelay(500);         // velocidad de sensado
+        
     }
 }
 

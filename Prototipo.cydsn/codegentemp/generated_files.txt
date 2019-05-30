@@ -71,6 +71,9 @@
   <file name="C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\I2C_SLAVE.c" value="SOURCE_C;CortexM3;;;;I2C" />
   <file name="C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\I2C_MASTER.c" value="SOURCE_C;CortexM3;;;;I2C" />
   <file name="C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\I2C_PVT.h" value="HEADER;;;;;I2C" />
+  <file name="C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\vpp_distance_aliases.h" value="HEADER;;;;;vpp_distance" />
+  <file name="C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\vpp_distance.c" value="SOURCE_C;CortexM3;;;;vpp_distance" />
+  <file name="C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\vpp_distance.h" value="HEADER;;;;;vpp_distance" />
   <file name="C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_IRQ" />
   <file name="C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_IRQ.h" value="HEADER;;;;;ADC_IRQ" />
   <file name="C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_theACLK.c" value="SOURCE_C;CortexM3;;;;ADC_theACLK" />

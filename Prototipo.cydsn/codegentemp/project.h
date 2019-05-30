@@ -44,6 +44,8 @@
 #include "SCL.h"
 #include "I2C.h"
 #include "I2C_PVT.h"
+#include "vpp_distance_aliases.h"
+#include "vpp_distance.h"
 #include "ADC_IRQ.h"
 #include "ADC_theACLK.h"
 #include "UART_IntClock.h"

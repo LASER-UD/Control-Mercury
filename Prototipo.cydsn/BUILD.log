@@ -1,14 +1,63 @@
---------------- Build Started: 05/27/2019 19:02:15 Project: Prototipo, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-The code generation step is up to date.
+--------------- Build Started: 05/29/2019 19:00:26 Project: Prototipo, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\LASER_2\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Prototipo.cyprj" -d CY8C5888LTI-LP097 -s "C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+HDL Generation...
+Synthesis...
+Tech Mapping...
+ADD: pft.M0040: information: The following 1 pin(s) will be assigned a location by the fitter: vpp_distance(0)
+Analog Placement...
+Log: apr.M0058: The analog placement iterative improvement is 49% done. (App=cydsfit)
+Analog Routing...
+Analog Code Generation...
+Digital Placement...
+Digital Routing...
+Bitstream Generation...
+Bitstream Verification...
+Static timing analysis...
+API Generation...
+Dependency Generation...
+Cleanup...
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\Prototipo.a .\CortexM3\ARM_GCC_541\Debug\ADC.o .\CortexM3\ARM_GCC_541\Debug\ADC_INT.o .\CortexM3\ARM_GCC_541\Debug\ADC_PM.o .\CortexM3\ARM_GCC_541\Debug\Pin_ADC.o .\CortexM3\ARM_GCC_541\Debug\PWM.o .\CortexM3\ARM_GCC_541\Debug\PWM_PM.o .\CortexM3\ARM_GCC_541\Debug\CLK.o .\CortexM3\ARM_GCC_541\Debug\Motor1.o .\CortexM3\ARM_GCC_541\Debug\Motor2.o .\CortexM3\ARM_GCC_541\Debug\UART.o .\CortexM3\ARM_GCC_541\Debug\UART_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_BOOT.o .\CortexM3\ARM_GCC_541\Debug\IRQRX.o .\CortexM3\ARM_GCC_541\Debug\ADC_IRQ.o .\CortexM3\ARM_GCC_541\Debug\ADC_theACLK.o .\CortexM3\ARM_GCC_541\Debug\UART_IntClock.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\LED.o .\CortexM3\ARM_GCC_541\Debug\PWM2.o .\CortexM3\ARM_GCC_541\Debug\PWM2_PM.o .\CortexM3\ARM_GCC_541\Debug\Servo.o .\CortexM3\ARM_GCC_541\Debug\CLK1.o .\CortexM3\ARM_GCC_541\Debug\PIN_E.o .\CortexM3\ARM_GCC_541\Debug\I2C.o .\CortexM3\ARM_GCC_541\Debug\I2C_BOOT.o .\CortexM3\ARM_GCC_541\Debug\I2C_INT.o .\CortexM3\ARM_GCC_541\Debug\I2C_PM.o .\CortexM3\ARM_GCC_541\Debug\I2C_SLAVE.o .\CortexM3\ARM_GCC_541\Debug\I2C_MASTER.o .\CortexM3\ARM_GCC_541\Debug\SDA.o .\CortexM3\ARM_GCC_541\Debug\SCL.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
-arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\Prototipo.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\CortexM3\ARM_GCC_541\Debug\Prototipo.elf" .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\Prototipo.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/Prototipo.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
-cyelftool.exe -C "C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\CortexM3\ARM_GCC_541\Debug\Prototipo.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
-No ELF section .cychecksum found, creating one
-Application checksum calculated and stored in ELF section .cychecksum
-Checksum calculated and stored in ELF section .cymeta
-cyelftool.exe -S "C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\CortexM3\ARM_GCC_541\Debug\Prototipo.elf"
-Flash used: 7112 of 262144 bytes (2,7 %).
-SRAM used: 2601 of 65536 bytes (4,0 %). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 05/27/2019 19:02:16 ---------------
+main.c: In function 'e_fuse_stage1':
+main.c:66:5: warning: implicit declaration of function '_vpp_on' [-Wimplicit-function-declaration]
+     _vpp_on();
+     ^
+main.c: At top level:
+main.c:98:27: error: expected declaration specifiers or '...' before ',' token
+ static void e_fuse_stage4(, uint8_t new_address) {
+                           ^
+main.c: In function 'e_fuse_stage6':
+main.c:124:5: warning: implicit declaration of function '_vpp_off' [-Wimplicit-function-declaration]
+     _vpp_off();
+     ^
+main.c: In function 'e_fuse_stage9':
+main.c:168:33: warning: implicit declaration of function '_i2c_read' [-Wimplicit-function-declaration]
+     const uint8_t check_value = _i2c_read(0x27);
+                                 ^
+main.c: At top level:
+main.c:64:13: warning: 'e_fuse_stage1' defined but not used [-Wunused-function]
+ static void e_fuse_stage1() {
+             ^
+main.c:74:13: warning: 'e_fuse_stage2' defined but not used [-Wunused-function]
+ static void e_fuse_stage2() {
+             ^
+main.c:86:13: warning: 'e_fuse_stage3' defined but not used [-Wunused-function]
+ static void e_fuse_stage3() {
+             ^
+main.c:109:13: warning: 'e_fuse_stage5' defined but not used [-Wunused-function]
+ static void e_fuse_stage5() {
+             ^
+main.c:121:13: warning: 'e_fuse_stage6' defined but not used [-Wunused-function]
+ static void e_fuse_stage6() {
+             ^
+main.c:134:13: warning: 'e_fuse_stage7' defined but not used [-Wunused-function]
+ static void e_fuse_stage7() {
+             ^
+main.c:146:13: warning: 'e_fuse_stage8' defined but not used [-Wunused-function]
+ static void e_fuse_stage8() {
+             ^
+main.c:162:16: warning: 'e_fuse_stage9' defined but not used [-Wunused-function]
+ static uint8_t e_fuse_stage9() {
+                ^
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+--------------- Build Failed: 05/29/2019 19:00:45 ---------------
