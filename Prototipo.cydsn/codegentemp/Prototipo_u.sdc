@@ -1,3 +1,3 @@
-# Component constraints for C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\TopDesign\TopDesign.cysch
-# Project: C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Prototipo.cyprj
-# Date: Mon, 27 May 2019 18:55:49 GMT
+# Component constraints for C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\TopDesign\TopDesign.cysch
+# Project: C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Prototipo.cyprj
+# Date: Sat, 08 Jun 2019 20:09:14 GMT

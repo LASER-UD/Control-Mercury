@@ -261,6 +261,7 @@
       <Data key="de7ea0c3-26f2-49a6-b786-267610b52d40" value="Servo" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="Motor1" />
       <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="Tx_1" />
+      <Data key="f264aac4-58aa-479c-ad60-99ef248e1a2d" value="PWMdir" />
     </Group>
   </Group>
   <Group key="EEPROM">
@@ -3395,6 +3396,11 @@
     <Group key="ed092b9b-d398-4703-be89-cebf998501f6">
       <Group key="0">
         <Data key="Port Format" value="3,1" />
+      </Group>
+    </Group>
+    <Group key="f264aac4-58aa-479c-ad60-99ef248e1a2d">
+      <Group key="0">
+        <Data key="Port Format" value="2,6" />
       </Group>
     </Group>
     <Group key="UnAssigned Pins" />
