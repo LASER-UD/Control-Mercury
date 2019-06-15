@@ -76,9 +76,12 @@
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWM_Dir_PM.c" value="SOURCE_C;CortexM3;;;;PWM_Dir" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\Clock_1.c" value="SOURCE_C;CortexM3;;;;Clock_1" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\Clock_1.h" value="HEADER;;;;;Clock_1" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWMdir_aliases.h" value="HEADER;;;;;PWMdir" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWMdir.c" value="SOURCE_C;CortexM3;;;;PWMdir" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWMdir.h" value="HEADER;;;;;PWMdir" />
+  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWMdir_I_aliases.h" value="HEADER;;;;;PWMdir_I" />
+  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWMdir_I.c" value="SOURCE_C;CortexM3;;;;PWMdir_I" />
+  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWMdir_I.h" value="HEADER;;;;;PWMdir_I" />
+  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWMdir_D_aliases.h" value="HEADER;;;;;PWMdir_D" />
+  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWMdir_D.c" value="SOURCE_C;CortexM3;;;;PWMdir_D" />
+  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWMdir_D.h" value="HEADER;;;;;PWMdir_D" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_IRQ" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_IRQ.h" value="HEADER;;;;;ADC_IRQ" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_theACLK.c" value="SOURCE_C;CortexM3;;;;ADC_theACLK" />

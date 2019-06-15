@@ -4,31 +4,59 @@
 #include <stdbool.h>
 #include "GP2Y0E03.h"
 
+const int MAXDIRI=4450; 
+const int MINDIRI=3710;
+
+const int MAXDIRD=2590;
+const int MINDIRD=1870;
+
+const int DDIRI=37;
+const int DDIRD=36;
+
+
 char buffer2[12]={};
 int16 temp,count;
 unsigned char valor;
-volatile unsigned int direccion=4272;
+volatile unsigned int direcciond=2230;//
+volatile unsigned int direccioni=4080;//CENTRO
 volatile bool banderag=false,bandera1=false,banderaS=false;
 volatile char dato;
 
 
 void TurnLefth(){//Giro Izquierda
 
-     if (direccion<4992)//(150°)
+      if (direccioni<MAXDIRI)
     {
-        //con una adiccion de 20 cambia 5° y con 40 cambia 10°
-        direccion=direccion+180;
-        PWM_Dir_WriteCompare(direccion);
+        direccioni=direccioni+DDIRI;
+        PWM_Dir_WriteCompare2(direccioni);
     }
+    
+     if (direcciond<MAXDIRD)
+    {
+        direcciond=direcciond+DDIRD;
+        PWM_Dir_WriteCompare1(direcciond);
+    }
+    
+        
 }
 
-void TurnRight(){//Giro Derecha
+void TurnRight(){
+
+
     
-     if (direccion>3552)//(90°)
-    {   //con una adiccion de 20 cambia 5° y con 40 cambia 10°
-        direccion=direccion-180;
-        PWM_Dir_WriteCompare(direccion); 
+      if (direccioni>MINDIRI)
+        {   
+        direccioni=direccioni-DDIRI;
+        PWM_Dir_WriteCompare2(direccioni); 
     }
+    
+    if (direcciond>MINDIRD)
+    {   
+        direcciond=direcciond-DDIRD;
+        PWM_Dir_WriteCompare1(direcciond); 
+    }  
+    
+   
 }
 
 CY_ISR(InterrupRx){
@@ -53,15 +81,23 @@ CY_ISR(InterrupRx){
         {
             //Izquierda 10 °
             TurnLefth();
-            sprintf(buffer2,"*T%d*\r\n",direccion);
+            sprintf(buffer2,"*T%d*Der: ",direcciond);
             UART_PutString(buffer2);
+            UART_PutString("\r\n");
+            sprintf(buffer2,"*T%d*Iz: ",direccioni);
+            UART_PutString(buffer2);
+            UART_PutString("\r\n");
             break;
         }
         case '2':{
             //Deracha  10 °
             TurnRight();
-            sprintf(buffer2,"*T%d*\r\n",direccion);
+            sprintf(buffer2,"*T%d*Der: ",direcciond);
             UART_PutString(buffer2);
+            UART_PutString("\r\n");
+            sprintf(buffer2,"*T%d*Iz: ",direccioni);
+            UART_PutString(buffer2);
+            UART_PutString("\r\n");
             break;
         }
          case '4':{
@@ -144,7 +180,8 @@ int main(void)
     PWM_WriteCompare1(255);
     PWM_WriteCompare2(255);
     PWM_Dir_Start();
-    PWM_Dir_WriteCompare(4272);//en cero
+    PWM_Dir_WriteCompare1(direcciond);//en cero
+    PWM_Dir_WriteCompare2(direccioni);//en cero
     /* Codigo para controlar desde App*/
     UART_PutString("*.kwl\r\n");
     UART_PutString("clear_panel()\r\n");
