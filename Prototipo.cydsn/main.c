@@ -69,11 +69,19 @@ CY_ISR(InterrupRx){
         }
         case '0':{
         //Adelante Inicio
+            PWM_Motores_WriteCompare1(100);
+            PWM_Motores_WriteCompare2(100);
+            INMD_Write(1);
+            INMI_Write(1);       
             
             break;
         }
         case '1':{
             //Atras Inicio
+            PWM_Motores_WriteCompare1(100);
+            PWM_Motores_WriteCompare2(100); 
+            INMD_Write(2);
+            INMI_Write(2);
             
             break;
         }
@@ -102,12 +110,18 @@ CY_ISR(InterrupRx){
         }
          case '4':{
             //Adelante Fin   
-            
+            PWM_Motores_WriteCompare1(0);
+            PWM_Motores_WriteCompare2(0);
+            INMD_Write(0);
+            INMI_Write(0);
             break;
         }
         case '5':{
             // Atras Fin
-                        
+            PWM_Motores_WriteCompare1(0);
+            PWM_Motores_WriteCompare2(0);
+            INMD_Write(0);
+            INMI_Write(0);            
             break;
         }
         
@@ -174,11 +188,12 @@ int main(void)
     /*Inicia los Modulos */
     UART_Start(); 
     IRQRX_StartEx(InterrupRx);
-    PWM_Start();
-    PWM2_Start();
+    PWM_Motores_Start();
     ADC_Start();
-    PWM_WriteCompare1(255);
-    PWM_WriteCompare2(255);
+    INMD_Write(0);
+    INMI_Write(0);
+    PWM_Motores_WriteCompare1(0);
+    PWM_Motores_WriteCompare2(0);
     PWM_Dir_Start();
     PWM_Dir_WriteCompare1(direcciond);//en cero
     PWM_Dir_WriteCompare2(direccioni);//en cero
