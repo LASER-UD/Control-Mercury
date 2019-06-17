@@ -1,6 +1,6 @@
 // ======================================================================
 // Prototipo.v generated from TopDesign.cysch
-// 06/15/2019 at 17:30
+// 06/17/2019 at 07:55
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1011,7 +1011,7 @@ module top ;
 		#(.id("8d90545d-45a1-4c30-bce7-f706c6283193"),
 		  .source_clock_id(""),
 		  .divisor(0),
-		  .period("50000000000"),
+		  .period("20000000000"),
 		  .is_direct(0),
 		  .is_digital(1))
 		CLK

@@ -2,7 +2,7 @@
 --	Conversion of Prototipo.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Jun 15 17:30:56 2019
+--	Mon Jun 17 07:55:13 2019
 --
 
 USE cypress.cypress.all;
@@ -1711,7 +1711,7 @@ CLK:cy_clock_v1_0
 		id=>"8d90545d-45a1-4c30-bce7-f706c6283193",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"50000000000",
+		period=>"20000000000",
 		is_direct=>'0',
 		is_digital=>'1')
 	PORT MAP(clock_out=>Net_90,
