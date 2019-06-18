@@ -7,7 +7,7 @@
 const int MAXDIRI=4450; 
 const int MINDIRI=3710;
 
-const int MAXDIRD=2590;
+const int MAXDIRD=2610;
 const int MINDIRD=1870;
 
 const int DDIRI=37;
@@ -17,9 +17,9 @@ const int DDIRD=36;
 char buffer2[12]={};
 int16 temp,count;
 unsigned char valor;
-volatile unsigned int direcciond=2230;//
+volatile unsigned int direcciond=2240;//
 volatile unsigned int direccioni=4080;//CENTRO
-volatile bool banderag=false,bandera1=false;
+volatile bool banderag=false,bandera1=false, banderaDoor = false;
 volatile char dato;
 
 
@@ -85,7 +85,7 @@ CY_ISR(InterrupRx){
             
             break;
         }
-        case '3':
+        case '2':
         {
             //Izquierda 10 °
             TurnLefth();
@@ -97,7 +97,7 @@ CY_ISR(InterrupRx){
             UART_PutString("\r\n");
             break;
         }
-        case '2':{
+        case '3':{
             //Deracha  10 °
             TurnRight();
             sprintf(buffer2,"*T%d*Der: ",direcciond);
@@ -153,18 +153,20 @@ CY_ISR(InterrupRx){
         }
         case 'S':
         {   //Activar motores de Recojer Bola se deben desactivar solos
-            
+            Ascensor_Write(1);
+            INMA_Write(1);
+            CyDelay(5000);
+            INMA_Write(0);
             break;
         }
         case 'W':
-        {   //Activar plataforma para subir bola
-            Ascensor_Write(1);
-            INMD_Write(1);
-            INMI_Write(0);
-            CyDelay(5000);
-            Ascensor_Write(0);
-            INMD_Write(0);
-            INMI_Write(0);
+        {   //Ingreso de bola
+            if(banderaDoor){                
+                PWM_Door_WriteCompare(5500); //Pasa a 180 grados
+            }else{
+                PWM_Door_WriteCompare(2000); // pasa a 0 grados
+            }
+            banderaDoor = ~banderaDoor;
             break;
         }
         case 'D':{
@@ -201,10 +203,16 @@ int main(void)
     PWM_Dir_Start();
     PWM_Dir_WriteCompare1(direcciond);//en cero
     PWM_Dir_WriteCompare2(direccioni);//en cero
+    //Puerta
+    PWM_Door_Start();
+    //0 grados = 5500
+    //90 grados = 3200
+    //180 grados = 2000
+    PWM_Door_WriteCompare(5500); //
+    
     // Ascensor
     Ascensor_Write(0);
-    INMD_Write(0);
-    INMI_Write(0); 
+    INMA_Write(0);
     
     /* Codigo para controlar desde App*/
     UART_PutString("*.kwl\r\n");
@@ -219,7 +227,8 @@ int main(void)
     UART_PutString("add_button(5,6,10,Z,)\r\n");
     UART_PutString("add_button(13,7,28,F,)\r\n");
     UART_PutString("add_button(13,1,30,S,)\r\n");
-    UART_PutString("add_button(0,1,27,S,)\r\n");
+    UART_PutString("add_button(1,2,24,W,)\r\n");
+    UART_PutString("add_button(1,1,1,S,)\r\n");
     UART_PutString("add_button(0,7,29,D,)\r\n");
     UART_PutString("add_monitor(5,2,5,T,1)\r\n");
     UART_PutString("set_panel_notes(,,,)\r\n");
