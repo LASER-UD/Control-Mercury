@@ -1,6 +1,6 @@
-C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Prototipo.cyprj|09295b2c-e76d-4d26-9b14-976e95fd9782
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|82c60c41-e001-40f5-9242-64b5e585c1b3
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|85153950-bb9e-4905-98a9-82b6c22b6da6
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|60848403-eeed-402c-a813-83a32e221cfd
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|6c4b36af-5717-417a-9064-07ce1b2a83cc
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|6f1c5f14-b9d6-4a0b-8ef2-e4fb29f01ad9
+C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Prototipo.cyprj|f2446494-9fc5-4e99-b008-7a384c7633ff
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|2ab148fb-b47a-48f0-8774-1d82852e227f
+C:\Users\nikod\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|680df18a-f4ee-4c21-b0de-e3a05e7141ea
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|1f1f8b51-71a9-4f14-92bc-f1af9cc7afd3
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|3fd692ea-f660-4add-b9d8-e1fcb32fb9fa
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|401884e4-9737-4ef0-bfc1-bc11fed1a143

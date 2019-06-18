@@ -19,7 +19,7 @@ int16 temp,count;
 unsigned char valor;
 volatile unsigned int direcciond=2230;//
 volatile unsigned int direccioni=4080;//CENTRO
-volatile bool banderag=false,bandera1=false,banderaS=false;
+volatile bool banderag=false,bandera1=false;
 volatile char dato;
 
 
@@ -36,7 +36,7 @@ void TurnLefth(){//Giro Izquierda
         direcciond=direcciond+DDIRD;
         PWM_Dir_WriteCompare1(direcciond);
     }
-    
+  
         
 }
 
@@ -126,24 +126,24 @@ CY_ISR(InterrupRx){
         }
         
         case '6':
-        {   // Atras Fin
+        {   
             
             
             break;
         }
         case 'X':
         {   // Giro 90 ° Izquierda
-            for(char i=0;i<9;i++){
-                TurnLefth();
-            }
+//            for(char i=0;i<9;i++){
+//                TurnLefth();
+//            }
             
             break;
         }
         case 'Z':
         {   // Giro 90 ° Derecha
-            for(char i=0;i<9;i++){
-                TurnRight();
-            }
+//            for(char i=0;i<9;i++){
+//                TurnRight();
+//            }
             break;
         }
         case 'F':
@@ -154,13 +154,17 @@ CY_ISR(InterrupRx){
         case 'S':
         {   //Activar motores de Recojer Bola se deben desactivar solos
             
-            banderaS=true;
             break;
         }
         case 'W':
         {   //Activar plataforma para subir bola
-            
-            
+            Ascensor_Write(1);
+            INMD_Write(1);
+            INMI_Write(0);
+            CyDelay(5000);
+            Ascensor_Write(0);
+            INMD_Write(0);
+            INMI_Write(0);
             break;
         }
         case 'D':{
@@ -197,6 +201,11 @@ int main(void)
     PWM_Dir_Start();
     PWM_Dir_WriteCompare1(direcciond);//en cero
     PWM_Dir_WriteCompare2(direccioni);//en cero
+    // Ascensor
+    Ascensor_Write(0);
+    INMD_Write(0);
+    INMI_Write(0); 
+    
     /* Codigo para controlar desde App*/
     UART_PutString("*.kwl\r\n");
     UART_PutString("clear_panel()\r\n");

@@ -911,19 +911,23 @@
 <v>Off-Chip</v>
 </tree_states_tab_names>
 <tree_states>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Cypress Component Catalog\Digital\Logic\And [v1.0]">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Cypress Component Catalog\Thermal Management">
 <ExpandedNodeIds>
 <v>Cypress Component Catalog</v>
 <v>Cypress Component Catalog\Digital</v>
+<v>Cypress Component Catalog\Digital\Logic</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>Cypress Component Catalog</v>
-<v>Cypress Component Catalog\Analog</v>
-<v>Cypress Component Catalog\CapSense</v>
-<v>Cypress Component Catalog\Communications</v>
-<v>Cypress Component Catalog\Digital</v>
-<v>Cypress Component Catalog\Digital\Functions</v>
-<v>Cypress Component Catalog\Digital\Logic</v>
+<v>Cypress Component Catalog\Digital\Logic\Multiplexer [v1.10]</v>
+<v>Cypress Component Catalog\Digital\Logic\Nand [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Logic\Nor [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Logic\Not [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Logic\Or [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Logic\SR Flip Flop [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Logic\Toggle Flip Flop [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Logic\Virtual Mux [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Logic\Xnor [v1.0]</v>
+<v>Cypress Component Catalog\Digital\Logic\Xor [v1.0]</v>
 <v>Cypress Component Catalog\Digital\Registers</v>
 <v>Cypress Component Catalog\Digital\Utility</v>
 <v>Cypress Component Catalog\Display</v>
@@ -1177,6 +1181,23 @@
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\cy_bufoe_v1_10\cy_bufoe_v1_10.pdf</v>
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\cy_bufoe_v1_10\version.cypatch</v>
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\cy_bufoe_v1_10\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.cysym</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.v</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.cycdx</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.cydmacap</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\CyControlReg_v1_80.cystate</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\version.cypatch</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\API\CyControlReg.h</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\API\CyControlReg.c</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\API\CyControlReg_PM.c</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\Custom\ControlRegParameters.cs</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\Custom\cybitfieldcontrol.cs</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\Custom\cybitfieldcontrol.designer.cs</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\Custom\Resources.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\Custom\cybitfieldcontrol.resx</v>
+<v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\Custom\Resources.resx</v>
 <v>.\Prototipo.cydwr</v>
 <v>..\..\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.c</v>
 <v>..\..\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.h</v>
@@ -1332,6 +1353,47 @@
 <v>Generated_Source\PSoC5\PWMdir_D_aliases.h</v>
 <v>Generated_Source\PSoC5\PWMdir_D.c</v>
 <v>Generated_Source\PSoC5\PWMdir_D.h</v>
+<v>Generated_Source\PSoC5\MotorD_aliases.h</v>
+<v>Generated_Source\PSoC5\MotorD.c</v>
+<v>Generated_Source\PSoC5\MotorD.h</v>
+<v>Generated_Source\PSoC5\MotorI_aliases.h</v>
+<v>Generated_Source\PSoC5\MotorI.c</v>
+<v>Generated_Source\PSoC5\MotorI.h</v>
+<v>Generated_Source\PSoC5\EMI_aliases.h</v>
+<v>Generated_Source\PSoC5\EMI.c</v>
+<v>Generated_Source\PSoC5\EMI.h</v>
+<v>Generated_Source\PSoC5\EMD_aliases.h</v>
+<v>Generated_Source\PSoC5\EMD.c</v>
+<v>Generated_Source\PSoC5\EMD.h</v>
+<v>Generated_Source\PSoC5\PWM_Motores.c</v>
+<v>Generated_Source\PSoC5\PWM_Motores.h</v>
+<v>Generated_Source\PSoC5\PWM_Motores_PM.c</v>
+<v>Generated_Source\PSoC5\INMI_aliases.h</v>
+<v>Generated_Source\PSoC5\INMI.c</v>
+<v>Generated_Source\PSoC5\INMI.h</v>
+<v>Generated_Source\PSoC5\INMD_aliases.h</v>
+<v>Generated_Source\PSoC5\INMD.c</v>
+<v>Generated_Source\PSoC5\INMD.h</v>
+<v>Generated_Source\PSoC5\Clock_2.c</v>
+<v>Generated_Source\PSoC5\Clock_2.h</v>
+<v>Generated_Source\PSoC5\Pin_Ascensor_aliases.h</v>
+<v>Generated_Source\PSoC5\Pin_Ascensor.c</v>
+<v>Generated_Source\PSoC5\Pin_Ascensor.h</v>
+<v>Generated_Source\PSoC5\Ascensor.h</v>
+<v>Generated_Source\PSoC5\Ascensor.c</v>
+<v>Generated_Source\PSoC5\Ascensor_PM.c</v>
+<v>Generated_Source\PSoC5\PWM_Door.c</v>
+<v>Generated_Source\PSoC5\PWM_Door.h</v>
+<v>Generated_Source\PSoC5\PWM_Door_PM.c</v>
+<v>Generated_Source\PSoC5\PWMdoor_aliases.h</v>
+<v>Generated_Source\PSoC5\PWMdoor.c</v>
+<v>Generated_Source\PSoC5\PWMdoor.h</v>
+<v>Generated_Source\PSoC5\Lanzamiento_aliases.h</v>
+<v>Generated_Source\PSoC5\Lanzamiento.c</v>
+<v>Generated_Source\PSoC5\Lanzamiento.h</v>
+<v>Generated_Source\PSoC5\INMA_aliases.h</v>
+<v>Generated_Source\PSoC5\INMA.c</v>
+<v>Generated_Source\PSoC5\INMA.h</v>
 </gen_list>
 <warp_dep>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif</v>
@@ -1341,9 +1403,9 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="132050297555689511" />
+<deps_time v="132053027148020046" />
 <top_block v="TopDesign" />
-<last_generation v="2" />
+<last_generation v="4" />
 <pdl_path v="" />
 <sw_packages />
 </CyGuid_925cc1e1-309e-4e08-b0a1-09a83c35b157>
