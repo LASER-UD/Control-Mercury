@@ -1,4 +1,4 @@
-C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\TopDesign\TopDesign.cysch
+C:\Users\jdrd3\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\TopDesign\TopDesign.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_v3_10\ADC_SAR_v3_10.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_v3_10\ADC_SAR_v3_10.pdf
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_v3_10\ADC_SAR_v3_10.cycdx
@@ -237,33 +237,33 @@ C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrim
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\Custom\Resources.Designer.cs
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\Custom\cybitfieldcontrol.resx
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\CyControlReg_v1_80\Custom\Resources.resx
-C:\Users\LASER_2\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Prototipo.cydwr
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.c
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cm3gcc.ld
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\Cm3RealView.scat
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\Cm3Start.c
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cm3.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cm3_psoc5.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyBootAsmGnu.s
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyBootAsmRv.s
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyDmac.c
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyDmac.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyFlash.c
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyFlash.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyLib.c
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyLib.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cypins.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cyPm.c
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cyPm.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CySpc.c
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CySpc.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cytypes.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cyutils.c
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cmFunc.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cmInstr.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\Cm3Iar.icf
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyBootAsmIar.s
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cmsis_armcc.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cmsis_gcc.h
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cmsis_compiler.h
+C:\Users\jdrd3\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Prototipo.cydwr
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.c
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cm3gcc.ld
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\Cm3RealView.scat
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\Cm3Start.c
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cm3.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cm3_psoc5.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyBootAsmGnu.s
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyBootAsmRv.s
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyDmac.c
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyDmac.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyFlash.c
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyFlash.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyLib.c
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyLib.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cypins.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cyPm.c
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cyPm.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CySpc.c
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CySpc.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cytypes.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cyutils.c
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cmFunc.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cmInstr.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\Cm3Iar.icf
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyBootAsmIar.s
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cmsis_armcc.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cmsis_gcc.h
+C:\Users\jdrd3\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cmsis_compiler.h

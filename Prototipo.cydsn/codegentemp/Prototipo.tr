@@ -82,7 +82,7 @@ MotorI(0)_PAD        22837         CLK:R
 PWMdir_D(0)_PAD      22507         Clock_1:R                    
 PWMdir_I(0)_PAD      23717         Clock_1:R                    
 PWMdoor(0)_PAD       22814         Clock_1:R                    
-Pin_Ascensor(0)_PAD  24795         Clock_2:R                    
+Pin_Ascensor(0)_PAD  24265         Clock_2:R                    
 SCL(0)_PAD:out       21984         CyBUS_CLK(fixed-function):R  
 SDA(0)_PAD:out       21633         CyBUS_CLK(fixed-function):R  
 Tx_1(0)_PAD          31307         UART_IntClock:R              

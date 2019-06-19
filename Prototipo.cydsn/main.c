@@ -25,7 +25,7 @@ volatile char dato;
 
 void TurnLefth(){//Giro Izquierda
 
-      if (direccioni<MAXDIRI)
+    if (direccioni<MAXDIRI)
     {
         direccioni=direccioni+DDIRI;
         PWM_Dir_WriteCompare2(direccioni);
@@ -36,15 +36,19 @@ void TurnLefth(){//Giro Izquierda
         direcciond=direcciond+DDIRD;
         PWM_Dir_WriteCompare1(direcciond);
     }
-  
-        
+    PWM_Motores_WriteCompare2(100);
+    PWM_Motores_WriteCompare1(100);
+    INMD_Write(1);
+    INMI_Write(2);
+    CyDelay(1000);
+    PWM_Motores_WriteCompare2(0);
+    PWM_Motores_WriteCompare1(0);
+            
 }
 
 void TurnRight(){
-
-
-    
-      if (direccioni>MINDIRI)
+  
+    if (direccioni>MINDIRI)
         {   
         direccioni=direccioni-DDIRI;
         PWM_Dir_WriteCompare2(direccioni); 
@@ -54,9 +58,15 @@ void TurnRight(){
     {   
         direcciond=direcciond-DDIRD;
         PWM_Dir_WriteCompare1(direcciond); 
-    }  
-    
-   
+    }
+    PWM_Motores_WriteCompare2(100);
+    PWM_Motores_WriteCompare1(100);
+    INMD_Write(2);
+    INMI_Write(1);
+    CyDelay(1000);
+    PWM_Motores_WriteCompare2(0);
+    PWM_Motores_WriteCompare1(0);
+      
 }
 
 CY_ISR(InterrupRx){
@@ -89,27 +99,19 @@ CY_ISR(InterrupRx){
         {
             //Izquierda 10 °
             TurnLefth();
-            sprintf(buffer2,"*T%d*Der: ",direcciond);
-            UART_PutString(buffer2);
-            UART_PutString("\r\n");
-            sprintf(buffer2,"*T%d*Iz: ",direccioni);
-            UART_PutString(buffer2);
-            UART_PutString("\r\n");
+            
             break;
         }
         case '3':{
             //Deracha  10 °
             TurnRight();
-            sprintf(buffer2,"*T%d*Der: ",direcciond);
-            UART_PutString(buffer2);
-            UART_PutString("\r\n");
-            sprintf(buffer2,"*T%d*Iz: ",direccioni);
-            UART_PutString(buffer2);
-            UART_PutString("\r\n");
+            
             break;
         }
          case '4':{
-            //Adelante Fin   
+            //Adelante Fin
+            PWM_Dir_WriteCompare1(2240);
+            PWM_Dir_WriteCompare2(4080);            
             PWM_Motores_WriteCompare1(0);
             PWM_Motores_WriteCompare2(0);
             INMD_Write(0);
@@ -118,17 +120,12 @@ CY_ISR(InterrupRx){
         }
         case '5':{
             // Atras Fin
+            PWM_Dir_WriteCompare1(2240);
+            PWM_Dir_WriteCompare2(4080); 
             PWM_Motores_WriteCompare1(0);
             PWM_Motores_WriteCompare2(0);
             INMD_Write(0);
             INMI_Write(0);            
-            break;
-        }
-        
-        case '6':
-        {   
-            
-            
             break;
         }
         case 'X':
@@ -221,8 +218,8 @@ int main(void)
     UART_PutString("add_text(3,1,medium,L,\"Amarillo Luces --\\nAzul Toma Bola --\\nRojo Sube Bola -- \\nVerde Lanza Bola\",245,240,245,)\r\n");
     UART_PutString("add_button(7,6,2,0,4)\r\n");
     UART_PutString("add_button(7,8,3,1,5)\r\n");
-    UART_PutString("add_button(9,8,5,2,)\r\n");
-    UART_PutString("add_button(5,8,4,3,)\r\n");
+    UART_PutString("add_button(9,8,5,2,6)\r\n");
+    UART_PutString("add_button(5,8,4,3,7)\r\n");
     UART_PutString("add_button(9,6,11,X,)\r\n");
     UART_PutString("add_button(5,6,10,Z,)\r\n");
     UART_PutString("add_button(13,7,28,F,)\r\n");

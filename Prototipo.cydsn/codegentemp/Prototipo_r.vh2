@@ -1,5 +1,5 @@
 -- Project:   Prototipo
--- Generated: 06/18/2019 13:58:07
+-- Generated: 06/19/2019 16:28:12
 -- PSoC Creator  4.2
 
 ENTITY Prototipo IS
@@ -302,15 +302,15 @@ ARCHITECTURE __DEFAULT__ OF Prototipo IS
     ATTRIBUTE lib_model OF INMD(1) : LABEL IS "iocell14";
     ATTRIBUTE Location OF INMD(1) : LABEL IS "P0[1]";
     ATTRIBUTE lib_model OF Pin_Ascensor(0) : LABEL IS "iocell15";
-    ATTRIBUTE Location OF Pin_Ascensor(0) : LABEL IS "P12[3]";
+    ATTRIBUTE Location OF Pin_Ascensor(0) : LABEL IS "P12[2]";
     ATTRIBUTE lib_model OF PWMdoor(0) : LABEL IS "iocell16";
     ATTRIBUTE Location OF PWMdoor(0) : LABEL IS "P1[5]";
     ATTRIBUTE lib_model OF Lanzamiento(0) : LABEL IS "iocell17";
-    ATTRIBUTE Location OF Lanzamiento(0) : LABEL IS "P12[0]";
+    ATTRIBUTE Location OF Lanzamiento(0) : LABEL IS "P15[5]";
     ATTRIBUTE lib_model OF INMA(0) : LABEL IS "iocell18";
-    ATTRIBUTE Location OF INMA(0) : LABEL IS "P12[1]";
+    ATTRIBUTE Location OF INMA(0) : LABEL IS "P12[0]";
     ATTRIBUTE lib_model OF INMA(1) : LABEL IS "iocell19";
-    ATTRIBUTE Location OF INMA(1) : LABEL IS "P12[2]";
+    ATTRIBUTE Location OF INMA(1) : LABEL IS "P12[1]";
     ATTRIBUTE lib_model OF \PWM_Motores:PWMUDB:status_2\ : LABEL IS "macrocell1";
     ATTRIBUTE Location OF \PWM_Motores:PWMUDB:status_2\ : LABEL IS "U(2,3)";
     ATTRIBUTE lib_model OF Net_23 : LABEL IS "macrocell2";

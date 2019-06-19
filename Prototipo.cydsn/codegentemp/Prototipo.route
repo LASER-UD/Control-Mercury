@@ -1461,8 +1461,8 @@ net Net_2114
 	switch ":dsiswitch_bottom@[DSI=(1,3)][side=bottom]:dsihc_bottom:80,71_f"
 	switch "IStub-:dsiswitch_bottom@[DSI=(1,3)][side=bottom]:dsihc_bottom:v80+:dsiswitch_bottom@[DSI=(1,3)][side=bottom]:dsihc_bottom:v82+:dsiswitch_bottom@[DSI=(1,3)][side=bottom]:dsihc_bottom:v84"
 	switch "Stub-:dsiswitch_bottom@[DSI=(1,3)][side=bottom]:dsihc_bottom:v80+:dsiswitch_bottom@[DSI=(1,3)][side=bottom]:dsihc_bottom:v82+:dsiswitch_bottom@[DSI=(1,3)][side=bottom]:dsihc_bottom:v84==>:ioport12:inputs1_mux.in_2"
-	switch ":ioport12:inputs1_mux.pin3__pin_input==>:ioport12:pin3.pin_input"
-	term   ":ioport12:pin3.pin_input"
+	switch ":ioport12:inputs1_mux.pin2__pin_input==>:ioport12:pin2.pin_input"
+	term   ":ioport12:pin2.pin_input"
 end Net_2114
 net Net_2119
 	term   ":clockblockcell.dclk_glb_3"

@@ -1,5 +1,5 @@
 # Prototipo
-# 2019-06-18 18:58:07Z
+# 2019-06-19 21:28:12Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -22,11 +22,11 @@ set_io "INMI(0)" iocell 0 3
 set_io "INMI(1)" iocell 0 4
 set_io "INMD(0)" iocell 0 0
 set_io "INMD(1)" iocell 0 1
-set_io "Pin_Ascensor(0)" iocell 12 3
+set_io "Pin_Ascensor(0)" iocell 12 2
 set_io "PWMdoor(0)" iocell 1 5
-set_io "Lanzamiento(0)" iocell 12 0
-set_io "INMA(0)" iocell 12 1
-set_io "INMA(1)" iocell 12 2
+set_io "Lanzamiento(0)" iocell 15 5
+set_io "INMA(0)" iocell 12 0
+set_io "INMA(1)" iocell 12 1
 set_location "\PWM_Motores:PWMUDB:status_2\" 2 3 0 1
 set_location "Net_23" 3 1 0 1
 set_location "\UART:BUART:counter_load_not\" 3 3 1 2
