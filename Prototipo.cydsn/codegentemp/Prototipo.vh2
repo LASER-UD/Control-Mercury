@@ -2,7 +2,7 @@
 --	Conversion of Prototipo.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Jun 19 16:28:04 2019
+--	Thu Jun 20 23:07:09 2019
 --
 
 USE cypress.cypress.all;
@@ -1246,38 +1246,12 @@ SIGNAL tmpIO_1__INMD_net_1 : bit;
 SIGNAL tmpIO_1__INMD_net_0 : bit;
 TERMINAL tmpSIOVREF__INMD_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__INMD_net_0 : bit;
-SIGNAL Net_2119 : bit;
 SIGNAL tmpOE__Pin_Ascensor_net_0 : bit;
-SIGNAL Net_2114 : bit;
+SIGNAL Net_2205 : bit;
 SIGNAL tmpFB_0__Pin_Ascensor_net_0 : bit;
 SIGNAL tmpIO_0__Pin_Ascensor_net_0 : bit;
 TERMINAL tmpSIOVREF__Pin_Ascensor_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Pin_Ascensor_net_0 : bit;
-SIGNAL \Ascensor:clk\ : bit;
-SIGNAL \Ascensor:rst\ : bit;
-SIGNAL \Ascensor:control_out_0\ : bit;
-SIGNAL Net_2111 : bit;
-SIGNAL \Ascensor:control_out_1\ : bit;
-SIGNAL Net_2112 : bit;
-SIGNAL \Ascensor:control_out_2\ : bit;
-SIGNAL Net_2113 : bit;
-SIGNAL \Ascensor:control_out_3\ : bit;
-SIGNAL Net_2115 : bit;
-SIGNAL \Ascensor:control_out_4\ : bit;
-SIGNAL Net_2116 : bit;
-SIGNAL \Ascensor:control_out_5\ : bit;
-SIGNAL Net_2117 : bit;
-SIGNAL \Ascensor:control_out_6\ : bit;
-SIGNAL Net_2118 : bit;
-SIGNAL \Ascensor:control_out_7\ : bit;
-SIGNAL \Ascensor:control_7\ : bit;
-SIGNAL \Ascensor:control_6\ : bit;
-SIGNAL \Ascensor:control_5\ : bit;
-SIGNAL \Ascensor:control_4\ : bit;
-SIGNAL \Ascensor:control_3\ : bit;
-SIGNAL \Ascensor:control_2\ : bit;
-SIGNAL \Ascensor:control_1\ : bit;
-SIGNAL \Ascensor:control_0\ : bit;
 SIGNAL \PWM_Door:PWMUDB:km_run\ : bit;
 SIGNAL \PWM_Door:PWMUDB:min_kill_reg\ : bit;
 SIGNAL \PWM_Door:PWMUDB:ClockOutFromEnBlock\ : bit;
@@ -1475,7 +1449,6 @@ SIGNAL \PWM_Door:PWMUDB:tc_i_reg\ : bit;
 SIGNAL \PWM_Door:Net_101\ : bit;
 SIGNAL \PWM_Door:Net_96\ : bit;
 SIGNAL Net_2126 : bit;
-SIGNAL Net_2205 : bit;
 SIGNAL \PWM_Door:PWMUDB:pwm_temp\ : bit;
 SIGNAL \PWM_Door:PWMUDB:cmp1\ : bit;
 SIGNAL \PWM_Door:PWMUDB:cmp2\ : bit;
@@ -1929,7 +1902,9 @@ Net_25D <= ((not \UART:BUART:reset_reg\ and \UART:BUART:tx_state_2\)
 
 \PWM_Door:PWMUDB:tc_i_reg\\D\ <= ((\PWM_Door:PWMUDB:runmode_enable\ and \PWM_Door:PWMUDB:tc_i\));
 
-\PWM_Door:PWMUDB:pwm_i\ <= ((\PWM_Door:PWMUDB:runmode_enable\ and \PWM_Door:PWMUDB:cmp1_less\));
+\PWM_Door:PWMUDB:pwm1_i\ <= ((\PWM_Door:PWMUDB:runmode_enable\ and \PWM_Door:PWMUDB:cmp1_less\));
+
+\PWM_Door:PWMUDB:pwm2_i\ <= ((\PWM_Door:PWMUDB:runmode_enable\ and \PWM_Door:PWMUDB:cmp2_less\));
 
 \ADC:cy_analog_virtualmux_3_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
@@ -3533,16 +3508,6 @@ INMD:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__Pin_ADC_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__INMD_net_0);
-Clock_2:cy_clock_v1_0
-	GENERIC MAP(cy_registers=>"",
-		id=>"e6f9369f-29dc-4280-a043-ad908c76450c",
-		source_clock_id=>"",
-		divisor=>0,
-		period=>"100000000000000",
-		is_direct=>'0',
-		is_digital=>'1')
-	PORT MAP(clock_out=>Net_2119,
-		dig_domain_out=>open);
 Pin_Ascensor:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"7082e372-9f17-4dc8-8052-3196a77fb27d",
 		drive_mode=>"110",
@@ -3600,7 +3565,7 @@ Pin_Ascensor:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__Pin_ADC_net_0),
-		y=>Net_2114,
+		y=>Net_2205,
 		fb=>(tmpFB_0__Pin_Ascensor_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__Pin_Ascensor_net_0),
@@ -3613,16 +3578,6 @@ Pin_Ascensor:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__Pin_ADC_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Pin_Ascensor_net_0);
-\Ascensor:Sync:ctrl_reg\:cy_psoc3_control
-	GENERIC MAP(cy_init_value=>"00000000",
-		cy_force_order=>'1',
-		cy_ctrl_mode_1=>"00000001",
-		cy_ctrl_mode_0=>"00000001",
-		cy_ext_reset=>'1')
-	PORT MAP(reset=>zero,
-		clock=>Net_2119,
-		control=>(\Ascensor:control_7\, \Ascensor:control_6\, \Ascensor:control_5\, \Ascensor:control_4\,
-			\Ascensor:control_3\, \Ascensor:control_2\, \Ascensor:control_1\, Net_2114));
 \PWM_Door:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
 	PORT MAP(clock_in=>Net_2030,
@@ -3876,7 +3831,7 @@ PWMdoor:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__Pin_ADC_net_0),
-		y=>Net_2212,
+		y=>Net_2126,
 		fb=>(tmpFB_0__PWMdoor_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__PWMdoor_net_0),
@@ -4330,17 +4285,17 @@ Net_25:cy_dff
 		clk=>\PWM_Door:PWMUDB:ClockOutFromEnBlock\,
 		q=>\PWM_Door:PWMUDB:dith_count_0\);
 \PWM_Door:PWMUDB:pwm_i_reg\:cy_dff
-	PORT MAP(d=>\PWM_Door:PWMUDB:pwm_i\,
+	PORT MAP(d=>zero,
 		clk=>\PWM_Door:PWMUDB:ClockOutFromEnBlock\,
-		q=>Net_2212);
+		q=>\PWM_Door:PWMUDB:pwm_i_reg\);
 \PWM_Door:PWMUDB:pwm1_i_reg\:cy_dff
-	PORT MAP(d=>zero,
+	PORT MAP(d=>\PWM_Door:PWMUDB:pwm1_i\,
 		clk=>\PWM_Door:PWMUDB:ClockOutFromEnBlock\,
-		q=>\PWM_Door:PWMUDB:pwm1_i_reg\);
+		q=>Net_2126);
 \PWM_Door:PWMUDB:pwm2_i_reg\:cy_dff
-	PORT MAP(d=>zero,
+	PORT MAP(d=>\PWM_Door:PWMUDB:pwm2_i\,
 		clk=>\PWM_Door:PWMUDB:ClockOutFromEnBlock\,
-		q=>\PWM_Door:PWMUDB:pwm2_i_reg\);
+		q=>Net_2205);
 \PWM_Door:PWMUDB:tc_i_reg\:cy_dff
 	PORT MAP(d=>\PWM_Door:PWMUDB:tc_i_reg\\D\,
 		clk=>\PWM_Door:PWMUDB:ClockOutFromEnBlock\,

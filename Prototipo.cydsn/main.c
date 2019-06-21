@@ -150,18 +150,18 @@ CY_ISR(InterrupRx){
         }
         case 'S':
         {   //Activar motores de Recojer Bola se deben desactivar solos
-            Ascensor_Write(1);
             INMA_Write(1);
-            CyDelay(5000);
-            INMA_Write(0);
+            PWM_Door_WriteCompare2(17000);
+            CyDelay(1300);
+            PWM_Door_WriteCompare2(0);
             break;
         }
         case 'W':
         {   //Ingreso de bola
             if(banderaDoor){                
-                PWM_Door_WriteCompare(5500); //Pasa a 180 grados
+                PWM_Door_WriteCompare1(5500); //Pasa a 180 grados
             }else{
-                PWM_Door_WriteCompare(2000); // pasa a 0 grados
+                PWM_Door_WriteCompare1(2000); // pasa a 0 grados
             }
             banderaDoor = ~banderaDoor;
             break;
@@ -181,6 +181,7 @@ CY_ISR(InterrupRx){
             break;
         }
     }
+    //UART_PutChar(dato);
 }
 
 
@@ -205,10 +206,10 @@ int main(void)
     //0 grados = 5500
     //90 grados = 3200
     //180 grados = 2000
-    PWM_Door_WriteCompare(5500); //
+    PWM_Door_WriteCompare1(5500); //
     
     // Ascensor
-    Ascensor_Write(0);
+    PWM_Door_WriteCompare2(0);
     INMA_Write(0);
     
     /* Codigo para controlar desde App*/
@@ -218,8 +219,8 @@ int main(void)
     UART_PutString("add_text(3,1,medium,L,\"Amarillo Luces --\\nAzul Toma Bola --\\nRojo Sube Bola -- \\nVerde Lanza Bola\",245,240,245,)\r\n");
     UART_PutString("add_button(7,6,2,0,4)\r\n");
     UART_PutString("add_button(7,8,3,1,5)\r\n");
-    UART_PutString("add_button(9,8,5,2,6)\r\n");
-    UART_PutString("add_button(5,8,4,3,7)\r\n");
+    UART_PutString("add_button(9,8,5,2,)\r\n");
+    UART_PutString("add_button(5,8,4,3,)\r\n");
     UART_PutString("add_button(9,6,11,X,)\r\n");
     UART_PutString("add_button(5,6,10,Z,)\r\n");
     UART_PutString("add_button(13,7,28,F,)\r\n");
