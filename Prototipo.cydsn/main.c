@@ -4,68 +4,67 @@
 #include <stdbool.h>
 #include "GP2Y0E03.h"
 
-const int MAXDIRI=4450; 
-const int MINDIRI=3710;
+const int MAXDIRI=4435; 
+const int MINDIRI=3695;
 
-const int CENDIRI=4080;
-const int CENDIRD=2240;
+const int CENDIRI=4065;
+const int CENDIRD=2225;
 
-const int MAXDIRD=2610;
-const int MINDIRD=1870;
+const int MAXDIRD=2595;
+const int MINDIRD=1855;
 
 const int DDIRI=37;
-const int DDIRD=36;
+const int DDIRD=37;
 
 
 char buffer2[12]={};
 int16 temp,count;
 unsigned char valor;
+unsigned char velo=105;
 volatile unsigned int direcciond=2240;//
 volatile unsigned int direccioni=4080;//CENTRO
-volatile bool banderag=false,bandera1=false, banderaDoor = false;
+volatile bool banderag=false,banderaAC=false, banderaDoor = false;
 volatile char dato;
 
 
 
 
-void TurnLefth(){//Giro Izquierda    
+void TurnRight(){//Giro Izquierda    
     while (direccioni<MAXDIRI)
     {
         direccioni=direccioni+DDIRI;
         PWM_Dir_WriteCompare2(direccioni);
         direcciond=direcciond+DDIRD;
         PWM_Dir_WriteCompare1(direcciond);
-        CyDelay(100);
+        CyDelay(80);
     }
-    
     INMD_Write(1);
     INMI_Write(1);
-    PWM_Motores_WriteCompare2(100);
-    PWM_Motores_WriteCompare1(200);
-    CyDelay(1000);
+    PWM_Motores_WriteCompare2(70);
+    PWM_Motores_WriteCompare1(210);
+    CyDelay(195);
     PWM_Motores_WriteCompare2(0);
     PWM_Motores_WriteCompare1(0);
             
 }
 
-void TurnRight(){
+void TurnLefth(){
       
     while(direccioni>MINDIRI)
     {   
         direccioni=direccioni-DDIRI;
         PWM_Dir_WriteCompare2(direccioni); 
         direcciond=direcciond-DDIRD;
-        PWM_Dir_WriteCompare1(direcciond); 
-  
+        PWM_Dir_WriteCompare1(direcciond);
+        CyDelay(80);
     }
     INMD_Write(1);
     INMI_Write(1);
-    PWM_Motores_WriteCompare2(200);
-    PWM_Motores_WriteCompare1(100);
-    CyDelay(1000);
+    PWM_Motores_WriteCompare2(220);
+    PWM_Motores_WriteCompare1(80);
+    CyDelay(200);
     PWM_Motores_WriteCompare2(0);
-    PWM_Motores_WriteCompare1(0);
-      
+    PWM_Motores_WriteCompare1(0);   
 }
 
 CY_ISR(InterrupRx){
@@ -87,10 +86,8 @@ CY_ISR(InterrupRx){
             }
             INMD_Write(1);
             INMI_Write(1);
-            PWM_Motores_WriteCompare1(100);
-            PWM_Motores_WriteCompare2(100);
-       
-            
+            velo=105;
+            banderaAC=true;
             break;
         }
         case '1':{
@@ -111,14 +108,14 @@ CY_ISR(InterrupRx){
         }
         case '2':
         {
-            //Izquierda 10 °
-            TurnLefth();
+            //Derehcha 10 °
+            TurnRight();
             
             break;
         }
         case '3':{
-            //Deracha  10 °
-            TurnRight();
+            //Izquierda  10 °
+            TurnLefth();
             
             break;
         }
@@ -129,6 +126,7 @@ CY_ISR(InterrupRx){
             PWM_Motores_WriteCompare2(0);
             INMD_Write(0);
             INMI_Write(0);
+            banderaAC=false;
             break;
         }
         case '5':{
@@ -162,8 +160,8 @@ CY_ISR(InterrupRx){
         case 'S':
         {   //Activar motores de Recojer Bola se deben desactivar solos
             INMA_Write(1);
-            PWM_Door_WriteCompare2(20000);
-            CyDelay(2500);
+            PWM_Door_WriteCompare2(23500);
+            CyDelay(2200);
             PWM_Door_WriteCompare2(0);
             break;
         }
@@ -255,6 +253,15 @@ int main(void)
             UART_PutString(buffer2);
             banderag=false;
         }
+        if(banderaAC){
+            PWM_Motores_WriteCompare1(velo);
+            PWM_Motores_WriteCompare2(velo);
+            if(velo<255){
+                velo=velo+25;
+                CyDelay(1000);
+            }   
+        }
+        
         //DS_get_data(0x40);
     }
 }
