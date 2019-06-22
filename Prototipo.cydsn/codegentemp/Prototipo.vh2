@@ -2,7 +2,7 @@
 --	Conversion of Prototipo.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Jun 20 23:07:09 2019
+--	Fri Jun 21 23:24:43 2019
 --
 
 USE cypress.cypress.all;

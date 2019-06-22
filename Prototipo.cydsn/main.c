@@ -28,72 +28,43 @@ volatile char dato;
 
 
 
-void TurnLefth(){//Giro Izquierda
-
-    if(direcciond<CENDIRD){
-    direcciond=CENDIRD;    
-    PWM_Dir_WriteCompare2(direcciond);
-    }
-    
-    
-    if(direccioni<CENDIRI){
-    direccioni=CENDIRI;    
-    PWM_Dir_WriteCompare1(direccioni);
-    }
-    
-    
-    if (direccioni<MAXDIRI)
+void TurnLefth(){//Giro Izquierda    
+    while (direccioni<MAXDIRI)
     {
         direccioni=direccioni+DDIRI;
         PWM_Dir_WriteCompare2(direccioni);
-    }
-    
-     if (direcciond<MAXDIRD)
-    {
         direcciond=direcciond+DDIRD;
         PWM_Dir_WriteCompare1(direcciond);
+        CyDelay(100);
     }
-//    PWM_Motores_WriteCompare2(100);
-//    PWM_Motores_WriteCompare1(100);
-//    INMD_Write(1);
-//    INMI_Write(2);
-//    CyDelay(1000);
-//    PWM_Motores_WriteCompare2(0);
-//    PWM_Motores_WriteCompare1(0);
+    
+    INMD_Write(1);
+    INMI_Write(1);
+    PWM_Motores_WriteCompare2(100);
+    PWM_Motores_WriteCompare1(200);
+    CyDelay(1000);
+    PWM_Motores_WriteCompare2(0);
+    PWM_Motores_WriteCompare1(0);
             
 }
 
 void TurnRight(){
-  
-    if(direcciond>CENDIRD){
-    direcciond=CENDIRD;    
-    PWM_Dir_WriteCompare2(direcciond);
-    }
-    
-    
-    if(direccioni>CENDIRI){
-    direccioni=CENDIRI;    
-    PWM_Dir_WriteCompare1(direccioni);
-    }
-    
-    if (direccioni>MINDIRI)
-        {   
+      
+    while(direccioni>MINDIRI)
+    {   
         direccioni=direccioni-DDIRI;
         PWM_Dir_WriteCompare2(direccioni); 
-    }
-    
-    if (direcciond>MINDIRD)
-    {   
         direcciond=direcciond-DDIRD;
         PWM_Dir_WriteCompare1(direcciond); 
+  
     }
-//    PWM_Motores_WriteCompare2(100);
-//    PWM_Motores_WriteCompare1(100);
-//    INMD_Write(2);
-//    INMI_Write(1);
-//    CyDelay(1000);
-//    PWM_Motores_WriteCompare2(0);
-//    PWM_Motores_WriteCompare1(0);
+    INMD_Write(1);
+    INMI_Write(1);
+    PWM_Motores_WriteCompare2(200);
+    PWM_Motores_WriteCompare1(100);
+    CyDelay(1000);
+    PWM_Motores_WriteCompare2(0);
+    PWM_Motores_WriteCompare1(0);
       
 }
 
@@ -107,19 +78,34 @@ CY_ISR(InterrupRx){
         }
         case '0':{
         //Adelante Inicio
+            if(direcciond!=2240){
+            direccioni=4080;
+            direcciond=2240;
+            PWM_Dir_WriteCompare1(2240);
+            PWM_Dir_WriteCompare2(4080);            
+            CyDelay(100);
+            }
+            INMD_Write(1);
+            INMI_Write(1);
             PWM_Motores_WriteCompare1(100);
             PWM_Motores_WriteCompare2(100);
-            INMD_Write(1);
-            INMI_Write(1);       
+       
             
             break;
         }
         case '1':{
             //Atras Inicio
-            PWM_Motores_WriteCompare1(100);
-            PWM_Motores_WriteCompare2(100); 
+            if(direcciond!=2240){
+            direccioni=4080;
+            direcciond=2240;
+            PWM_Dir_WriteCompare1(2240);
+            PWM_Dir_WriteCompare2(4080);            
+            CyDelay(100);
+            }
             INMD_Write(2);
             INMI_Write(2);
+            PWM_Motores_WriteCompare1(100);
+            PWM_Motores_WriteCompare2(100); 
             
             break;
         }
@@ -138,10 +124,7 @@ CY_ISR(InterrupRx){
         }
          case '4':{
             //Adelante Fin
-            direccioni=4080;
-            direcciond=2240;
-            PWM_Dir_WriteCompare1(2240);
-            PWM_Dir_WriteCompare2(4080);            
+            
             PWM_Motores_WriteCompare1(0);
             PWM_Motores_WriteCompare2(0);
             INMD_Write(0);
@@ -150,10 +133,6 @@ CY_ISR(InterrupRx){
         }
         case '5':{
             // Atras Fin
-            direccioni=4080;
-            direcciond=2240;
-            PWM_Dir_WriteCompare1(2240);
-            PWM_Dir_WriteCompare2(4080); 
             PWM_Motores_WriteCompare1(0);
             PWM_Motores_WriteCompare2(0);
             INMD_Write(0);
