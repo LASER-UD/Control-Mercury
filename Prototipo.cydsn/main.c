@@ -221,7 +221,7 @@ int main(void)
     PWM_Door_WriteCompare2(0);
     INMA_Write(0);
     
-    /* Codigo para controlar desde App*/
+    /* Codigo para controlar desde App
     UART_PutString("*.kwl\r\n");
     UART_PutString("clear_panel()\r\n");
     UART_PutString("set_grid_size(15,9)\r\n");
@@ -239,7 +239,7 @@ int main(void)
     UART_PutString("add_button(0,7,29,D,)\r\n");
     UART_PutString("add_monitor(5,2,5,T,1)\r\n");
     UART_PutString("set_panel_notes(,,,)\r\n");
-    UART_PutString("run()\r\n");
+    UART_PutString("run()\r\n");*/
     //DS_init(0x40);//Inicia sensor de distancia
     
     for(;;)
