@@ -18,13 +18,6 @@
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\cyfitteriar.inc" value="HEADER;;;;;" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\cyfitter.h" value="HEADER;;;;;" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\cydisabledsheets.h" value="HEADER;;;;;" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC.c" value="SOURCE_C;CortexM3;;;;ADC" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC.h" value="HEADER;;;;;ADC" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_INT.c" value="SOURCE_C;CortexM3;;;;ADC" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_PM.c" value="SOURCE_C;CortexM3;;;;ADC" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\Pin_ADC_aliases.h" value="HEADER;;;;;Pin_ADC" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\Pin_ADC.c" value="SOURCE_C;CortexM3;;;;Pin_ADC" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\Pin_ADC.h" value="HEADER;;;;;Pin_ADC" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWM_Motores.c" value="SOURCE_C;CortexM3;;;;PWM_Motores" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWM_Motores.h" value="HEADER;;;;;PWM_Motores" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\PWM_Motores_PM.c" value="SOURCE_C;CortexM3;;;;PWM_Motores" />
@@ -92,10 +85,6 @@
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\INMA_aliases.h" value="HEADER;;;;;INMA" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\INMA.c" value="SOURCE_C;CortexM3;;;;INMA" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\INMA.h" value="HEADER;;;;;INMA" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_IRQ.c" value="SOURCE_C;CortexM3;;;;ADC_IRQ" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_IRQ.h" value="HEADER;;;;;ADC_IRQ" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_theACLK.c" value="SOURCE_C;CortexM3;;;;ADC_theACLK" />
-  <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ADC_theACLK.h" value="HEADER;;;;;ADC_theACLK" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\UART_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_IntClock" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\UART_IntClock.h" value="HEADER;;;;;UART_IntClock" />
   <file name="C:\Users\nikod\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM3;;;;Em_EEPROM_Dynamic" />

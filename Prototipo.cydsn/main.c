@@ -23,7 +23,7 @@ unsigned char valor;
 unsigned char velo=105;
 volatile unsigned int direcciond=2240;//
 volatile unsigned int direccioni=4080;//CENTRO
-volatile bool banderag=false,banderaAC=false, banderaDoor = false;
+volatile bool banderaS=false,banderaG=false,banderaAC=false,banderaA=false, banderaDoor = false,banderaR=false,banderaL=false,banderaAT=false;
 volatile char dato;
 
 
@@ -49,7 +49,6 @@ void TurnRight(){//Giro Izquierda
 }
 
 void TurnLefth(){
-      
     while(direccioni>MINDIRI)
     {   
         direccioni=direccioni-DDIRI;
@@ -72,51 +71,28 @@ CY_ISR(InterrupRx){
     switch (dato){
         case 'g':{
             //Pide datos de sensor
-            banderag=true;        
+            banderaG=true;        
             break;
         }
         case '0':{
         //Adelante Inicio
-            if(direcciond!=2240){
-            direccioni=4080;
-            direcciond=2240;
-            PWM_Dir_WriteCompare1(2240);
-            PWM_Dir_WriteCompare2(4080);            
-            CyDelay(100);
-            }
-            INMD_Write(1);
-            INMI_Write(1);
-            velo=105;
-            banderaAC=true;
+            banderaA=true;
             break;
         }
         case '1':{
             //Atras Inicio
-            if(direcciond!=2240){
-            direccioni=4080;
-            direcciond=2240;
-            PWM_Dir_WriteCompare1(2240);
-            PWM_Dir_WriteCompare2(4080);            
-            CyDelay(100);
-            }
-            INMD_Write(2);
-            INMI_Write(2);
-            PWM_Motores_WriteCompare1(100);
-            PWM_Motores_WriteCompare2(100); 
-            
+            banderaAT=true;            
             break;
         }
         case '2':
         {
             //Derehcha 10 °
-            TurnRight();
-            
+            banderaR=true;
             break;
         }
         case '3':{
             //Izquierda  10 °
-            TurnLefth();
-            
+            banderaL=true;
             break;
         }
          case '4':{
@@ -134,22 +110,16 @@ CY_ISR(InterrupRx){
             PWM_Motores_WriteCompare1(0);
             PWM_Motores_WriteCompare2(0);
             INMD_Write(0);
-            INMI_Write(0);            
+            INMI_Write(0);
+            banderaAT=false;
             break;
         }
         case 'X':
-        {   // Giro 90 ° Izquierda
-//            for(char i=0;i<9;i++){
-//                TurnLefth();
-//            }
-            
+        {               
             break;
         }
         case 'Z':
-        {   // Giro 90 ° Derecha
-//            for(char i=0;i<9;i++){
-//                TurnRight();
-//            }
+        {   
             break;
         }
         case 'F':
@@ -159,20 +129,19 @@ CY_ISR(InterrupRx){
         }
         case 'S':
         {   //Activar motores de Recojer Bola se deben desactivar solos
-            INMA_Write(1);
-            PWM_Door_WriteCompare2(23500);
-            CyDelay(2200);
-            PWM_Door_WriteCompare2(0);
+            banderaS=true;
             break;
         }
         case 'W':
         {   //Ingreso de bola
             if(banderaDoor){                
                 PWM_Door_WriteCompare1(5500); //Pasa a 180 grados
+                banderaDoor=false;
             }else{
                 PWM_Door_WriteCompare1(2000); // pasa a 0 grados
+                banderaDoor=true;
             }
-            banderaDoor = ~banderaDoor;
+            
             break;
         }
         case 'D':{
@@ -190,7 +159,6 @@ CY_ISR(InterrupRx){
             break;
         }
     }
-    //UART_PutChar(dato);
 }
 
 
@@ -202,7 +170,6 @@ int main(void)
     UART_Start(); 
     IRQRX_StartEx(InterrupRx);
     PWM_Motores_Start();
-    ADC_Start();
     INMD_Write(0);
     INMI_Write(0);
     PWM_Motores_WriteCompare1(0);
@@ -212,10 +179,10 @@ int main(void)
     PWM_Dir_WriteCompare2(direccioni);//en cero
     //Puerta
     PWM_Door_Start();
+    PWM_Door_WriteCompare1(5500); 
     //0 grados = 5500
     //90 grados = 3200
     //180 grados = 2000
-    PWM_Door_WriteCompare1(5500); //
     
     // Ascensor
     PWM_Door_WriteCompare2(0);
@@ -244,16 +211,29 @@ int main(void)
     
     for(;;)
     {
-        if(banderag){
-            ADC_StartConvert();
-            ADC_IsEndConversion(ADC_WAIT_FOR_RESULT);
-            temp=ADC_GetResult16(); // actualiza Roll Graph
-            valor=((50*temp)/255);
-            sprintf(buffer2,"%d\n",valor);//lo codifica en ascci
-            UART_PutString(buffer2);
-            banderag=false;
+        if(banderaG){
+               sprintf(buffer2,"Distancia 1: %d\n\r",DS_get_data(0x40));
+	           UART_PutString(buffer2);
+	           CyDelay(1000);
+               banderaG=false;
         }
-        if(banderaAC){
+        
+        if(banderaA){
+            if(direcciond!=2240){
+                direccioni=4080;
+                direcciond=2240;
+                PWM_Dir_WriteCompare1(2240);
+                PWM_Dir_WriteCompare2(4080);            
+                CyDelay(100);
+            }
+            INMD_Write(1);
+            INMI_Write(1);
+            velo=105;
+            banderaAC=true;
+            banderaA=false;
+        }
+        
+        if(banderaAC){ 
             PWM_Motores_WriteCompare1(velo);
             PWM_Motores_WriteCompare2(velo);
             if(velo<255){
@@ -262,7 +242,36 @@ int main(void)
             }   
         }
         
-        //DS_get_data(0x40);
+        if(banderaAT){
+            if(direcciond!=2240){
+                direccioni=4080;
+                direcciond=2240;
+                PWM_Dir_WriteCompare1(2240);
+                PWM_Dir_WriteCompare2(4080);            
+                CyDelay(100);
+            }
+            INMD_Write(2);
+            INMI_Write(2);
+            PWM_Motores_WriteCompare1(100);
+            PWM_Motores_WriteCompare2(100); 
+        }
+        
+        if(banderaL){
+            TurnLefth();
+            banderaL=false;
+        }
+        if(banderaR){
+            TurnRight();
+            banderaR=false;  
+        }
+        if(banderaS){
+            INMA_Write(1);
+            PWM_Door_WriteCompare2(23500);
+            CyDelay(2200);
+            PWM_Door_WriteCompare2(0);
+            banderaS=false;
+        }
+        //
     }
 }
 
