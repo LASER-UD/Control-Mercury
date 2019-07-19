@@ -1,6 +1,6 @@
 #include <project.h>
 #include "I2C.h"
-#include "VDAC8.h"
+//#include "VDAC8.h"
 #include "UART.h"
 #include <string.h>
 #include <stdio.h>
@@ -44,8 +44,8 @@ void DS_init(char sladress){
     char buffer[12]={};
     //Funcion de configuracion o de escritura de registro
     I2C_Start();
-    VDAC8_Start();
-    VDAC8_SetValue(0);
+    //VDAC8_Start();
+    //VDAC8_SetValue(0);
     DS_beginwrite(sladress);
     I2C_MasterWriteByte(SHIFT_ADDR);//Pone direccion de memoria que quiere leer 
     I2C_MasterSendStop(); 
@@ -80,7 +80,7 @@ void DS_write(char slvadr, char adress, char load){
 
 void e_fuse_stage1() {
     DS_write(GP2Y0E,0xEC, 0xFF);
-    VDAC8_SetValue(206);
+    //VDAC8_SetValue(206);
 }
 
 /*
@@ -135,7 +135,7 @@ void e_fuse_stage5() {
  */
 void e_fuse_stage6() {
     DS_write(GP2Y0E,0xCA, 0x00);
-    VDAC8_SetValue(0);
+    //VDAC8_SetValue(0);
 }
 
 /*
@@ -194,7 +194,7 @@ uint8_t e_fuse_stage9() {
 
 void e_fuse_stage10_1_1() {
     DS_write(GP2Y0E,0xEC, 0xFF);
-    VDAC8_SetValue(206);
+    //VDAC8_SetValue(206);
     //_vpp_on();
 }
 
@@ -248,7 +248,7 @@ void e_fuse_stage10_5_1() {
  */
 void e_fuse_stage10_6_1() {
     DS_write(GP2Y0E,0xCA, 0x00);
-    VDAC8_SetValue(0);
+    //VDAC8_SetValue(0);
     //_vpp_off();
 }
 
@@ -261,7 +261,7 @@ void e_fuse_stage10_6_1() {
 void e_fuse_stage10_1_2() {
 
     DS_write(GP2Y0E,0xEC, 0xFF);
-    VDAC8_SetValue(206);
+    //VDAC8_SetValue(206);
     //_vpp_on();
 }
 
@@ -316,7 +316,7 @@ void e_fuse_stage10_5_2() {
 void e_fuse_stage10_6_2() {
 
     DS_write(GP2Y0E,0xCA, 0x00);
-    VDAC8_SetValue(0);
+    //VDAC8_SetValue(0);
 }
 
 /*
@@ -378,7 +378,7 @@ void Ds_change( uint8_t new_address) {
         UART_PutString("[ERROR] The new address must be 0x0f or lower!\r\n");
         return;
     }
-    VDAC8_SetValue(0);
+    //VDAC8_SetValue(0);
     CyDelayUs(500);
     e_fuse_stage1();
     UART_PutString("stage1\r\n");

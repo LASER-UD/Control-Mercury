@@ -40,11 +40,6 @@ void TurnRight(){//Giro Izquierda
     }
     INMD_Write(1);
     INMI_Write(1);
-    PWM_Motores_WriteCompare2(70);
-    PWM_Motores_WriteCompare1(210);
-    CyDelay(195);
-    PWM_Motores_WriteCompare2(0);
-    PWM_Motores_WriteCompare1(0);
             
 }
 
@@ -58,12 +53,7 @@ void TurnLefth(){
         CyDelay(80);
     }
     INMD_Write(1);
-    INMI_Write(1);
-    PWM_Motores_WriteCompare2(220);
-    PWM_Motores_WriteCompare1(80);
-    CyDelay(200);
-    PWM_Motores_WriteCompare2(0);
-    PWM_Motores_WriteCompare1(0);   
+    INMI_Write(1);  
 }
 
 CY_ISR(InterrupRx){
@@ -97,7 +87,7 @@ CY_ISR(InterrupRx){
         }
          case '4':{
             //Adelante Fin
-            
+            velo=105;
             PWM_Motores_WriteCompare1(0);
             PWM_Motores_WriteCompare2(0);
             INMD_Write(0);
@@ -112,6 +102,16 @@ CY_ISR(InterrupRx){
             INMD_Write(0);
             INMI_Write(0);
             banderaAT=false;
+            break;
+        }case '6':
+        {
+            //Derehcha 10 °
+            banderaAC=false;
+            break;
+        }
+        case '7':{
+            //Izquierda  10 °
+            banderaAC=false;
             break;
         }
         case 'X':
@@ -187,26 +187,6 @@ int main(void)
     // Ascensor
     PWM_Door_WriteCompare2(0);
     INMA_Write(0);
-    
-    /* Codigo para controlar desde App
-    UART_PutString("*.kwl\r\n");
-    UART_PutString("clear_panel()\r\n");
-    UART_PutString("set_grid_size(15,9)\r\n");
-    UART_PutString("add_text(3,1,medium,L,\"Amarillo Luces --\\nAzul Toma Bola --\\nRojo Sube Bola -- \\nVerde Lanza Bola\",245,240,245,)\r\n");
-    UART_PutString("add_button(7,6,2,0,4)\r\n");
-    UART_PutString("add_button(7,8,3,1,5)\r\n");
-    UART_PutString("add_button(9,8,5,2,)\r\n");
-    UART_PutString("add_button(5,8,4,3,)\r\n");
-    UART_PutString("add_button(9,6,11,X,)\r\n");
-    UART_PutString("add_button(5,6,10,Z,)\r\n");
-    UART_PutString("add_button(13,7,28,F,)\r\n");
-    UART_PutString("add_button(13,1,30,S,)\r\n");
-    UART_PutString("add_button(1,2,24,W,)\r\n");
-    UART_PutString("add_button(1,1,1,S,)\r\n");
-    UART_PutString("add_button(0,7,29,D,)\r\n");
-    UART_PutString("add_monitor(5,2,5,T,1)\r\n");
-    UART_PutString("set_panel_notes(,,,)\r\n");
-    UART_PutString("run()\r\n");*/
     //DS_init(0x40);//Inicia sensor de distancia
     
     for(;;)
@@ -258,11 +238,9 @@ int main(void)
         
         if(banderaL){
             TurnLefth();
-            banderaL=false;
         }
         if(banderaR){
-            TurnRight();
-            banderaR=false;  
+            TurnRight(); 
         }
         if(banderaS){
             INMA_Write(1);
