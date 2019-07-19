@@ -40,6 +40,7 @@ void TurnRight(){//Giro Izquierda
     }
     INMD_Write(1);
     INMI_Write(1);
+    banderaAC=true;
             
 }
 
@@ -53,7 +54,8 @@ void TurnLefth(){
         CyDelay(80);
     }
     INMD_Write(1);
-    INMI_Write(1);  
+    INMI_Write(1);
+    banderaAC=true;
 }
 
 CY_ISR(InterrupRx){
@@ -88,11 +90,12 @@ CY_ISR(InterrupRx){
          case '4':{
             //Adelante Fin
             velo=105;
+            banderaA=false;
+            banderaAC=false;
             PWM_Motores_WriteCompare1(0);
             PWM_Motores_WriteCompare2(0);
             INMD_Write(0);
             INMI_Write(0);
-            banderaAC=false;
             break;
         }
         case '5':{
@@ -238,9 +241,11 @@ int main(void)
         
         if(banderaL){
             TurnLefth();
+            banderaL=false;
         }
         if(banderaR){
             TurnRight(); 
+            banderaR=false;
         }
         if(banderaS){
             INMA_Write(1);
