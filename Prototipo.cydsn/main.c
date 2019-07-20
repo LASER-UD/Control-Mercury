@@ -23,47 +23,44 @@ unsigned char valor;
 unsigned char velo=105;
 volatile unsigned int direcciond=2240;//
 volatile unsigned int direccioni=4080;//CENTRO
-volatile bool banderaS=false,banderaG=false,banderaAC=false,banderaA=false, banderaDoor = false,banderaR=false,banderaL=false,banderaAT=false,banderaD=false;
+volatile bool banderaS=false,banderaG=false,banderaAC=false,banderaAL=false,banderaAR=false,banderaA=false, banderaDoor = false,banderaR=false,banderaL=false,banderaAT=false,banderaD=false;
 volatile char dato;
 
 
 
 
 void TurnRight(){//Giro Izquierda    
-//    while (direccioni<MAXDIRI)
-//    {
-//        direccioni=direccioni+DDIRI;
-//        PWM_Dir_WriteCompare2(direccioni);
-//        direcciond=direcciond+DDIRD;
-//        PWM_Dir_WriteCompare1(direcciond);
-//        CyDelay(80);
-//    }
-    direccioni=MAXDIRI;
-    PWM_Dir_WriteCompare2(direccioni);
-    direcciond=MAXDIRD;
-    PWM_Dir_WriteCompare1(direcciond);
+    while (direccioni<MAXDIRI)
+    {
+        direccioni=direccioni+DDIRI;
+        PWM_Dir_WriteCompare2(direccioni);
+        direcciond=direcciond+DDIRD;
+        PWM_Dir_WriteCompare1(direcciond);
+        CyDelay(80);
+    }
     INMD_Write(1);
     INMI_Write(1);
-    banderaAC=true;
+    PWM_Motores_WriteCompare2(70);
+    PWM_Motores_WriteCompare1(210);
+    banderaAR=true;
             
 }
 
 void TurnLefth(){
-//    while(direccioni>MINDIRI)
-//    {   
-//        direccioni=direccioni-DDIRI;
-//        PWM_Dir_WriteCompare2(direccioni); 
-//        direcciond=direcciond-DDIRD;
-//        PWM_Dir_WriteCompare1(direcciond);
-//        CyDelay(80);
-//    }
-    direccioni=MINDIRI;
-    PWM_Dir_WriteCompare2(direccioni); 
-    direcciond=MINDIRD;
-    PWM_Dir_WriteCompare1(direcciond);
+    while(direccioni>MINDIRI)
+    {   
+        direccioni=direccioni-DDIRI;
+        PWM_Dir_WriteCompare2(direccioni); 
+        direcciond=direcciond-DDIRD;
+        PWM_Dir_WriteCompare1(direcciond);
+        CyDelay(80);
+    }   
     INMD_Write(1);
     INMI_Write(1);
-    banderaAC=true;
+    PWM_Motores_WriteCompare2(220);
+    PWM_Motores_WriteCompare1(80);
+    banderaAL=true;
+    
 }
 
 void Adelante(){
@@ -78,10 +75,6 @@ void Adelante(){
     velo=105;
     banderaAC=true;
 }
-
-
-
-
 
 CY_ISR(InterrupRx){
     dato=UART_GetChar();//recibe el dato del bluetooth
@@ -114,13 +107,9 @@ CY_ISR(InterrupRx){
         }
          case '4':{
             //Adelante Fin
-            
-            PWM_Motores_WriteCompare1(0);
-            PWM_Motores_WriteCompare2(0);
-            INMD_Write(0);
-            INMI_Write(0);
             banderaAC=false;
-            velo=105;
+            banderaAL=false;
+            banderaAR=false;
             break;
         }
         case '5':{
@@ -164,8 +153,7 @@ CY_ISR(InterrupRx){
         }
         case 'D':{
             //Lanzar Bola
-
-            
+            banderaD=true;
             break;
         }
         case 'A':{
@@ -201,7 +189,6 @@ int main(void)
     //0 grados = 5500
     //90 grados = 3200
     //180 grados = 2000
-    
     // Ascensor
     PWM_Door_WriteCompare2(0);
     INMA_Write(0);
@@ -225,24 +212,19 @@ int main(void)
             TurnLefth();
             banderaL=false;
         }
+        
         if(banderaR){
-            TurnRight(); 
+            TurnRight();
             banderaR=false;
         }
+        
         if(banderaAC){ 
             PWM_Motores_WriteCompare1(velo);
             PWM_Motores_WriteCompare2(velo);
             if(velo<255){
                 velo=velo+50;
                 CyDelay(1000);
-            }else{
-                banderaAC=false;
-                PWM_Motores_WriteCompare1(0);
-                PWM_Motores_WriteCompare2(0);
-                INMD_Write(0);
-                INMI_Write(0);
-                velo=105;
-            }   
+            }  
         }
         if(banderaAT){
             if(direcciond!=2240){
@@ -271,6 +253,13 @@ int main(void)
             INMA_Write(1);
             Lanzamiento_Write(0);
             banderaD=false;
+        }
+        if((banderaAL==false)||(banderaAR==false)||(banderaAC==false)){
+                PWM_Motores_WriteCompare1(0);
+                PWM_Motores_WriteCompare2(0);
+                INMD_Write(0);
+                INMI_Write(0);
+                velo=105;
         }
         
         
