@@ -54,6 +54,8 @@
 #include "Lanzamiento.h"
 #include "INMA_aliases.h"
 #include "INMA.h"
+#include "INMAD_aliases.h"
+#include "INMAD.h"
 #include "UART_IntClock.h"
 #include "cy_em_eeprom.h"
 #include "core_cm3_psoc5.h"

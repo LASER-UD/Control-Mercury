@@ -72,10 +72,13 @@ set_io "SDA(0)" iocell 12 5
 set_io "LED(0)" iocell 2 1
 set_io "INMI(0)" iocell 0 5
 set_io "INMD(0)" iocell 2 3
-# Note: port 15 is the logical name for port 8
-set_io "Lanzamiento(0)" iocell 15 5
+set_io "Lanzamiento(0)" iocell 2 0
 set_io "INMA(0)" iocell 0 3
+# Note: port 12 is the logical name for port 7
+set_io "INMAD(0)" iocell 12 2
 set_io "PWMdoor(0)" iocell 1 5
 set_io "INMI(1)" iocell 0 6
 set_io "INMD(1)" iocell 2 4
 set_io "INMA(1)" iocell 0 4
+# Note: port 12 is the logical name for port 7
+set_io "INMAD(1)" iocell 12 3

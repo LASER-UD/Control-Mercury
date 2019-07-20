@@ -23,21 +23,25 @@ unsigned char valor;
 unsigned char velo=105;
 volatile unsigned int direcciond=2240;//
 volatile unsigned int direccioni=4080;//CENTRO
-volatile bool banderaS=false,banderaG=false,banderaAC=false,banderaA=false, banderaDoor = false,banderaR=false,banderaL=false,banderaAT=false;
+volatile bool banderaS=false,banderaG=false,banderaAC=false,banderaA=false, banderaDoor = false,banderaR=false,banderaL=false,banderaAT=false,banderaD=false;
 volatile char dato;
 
 
 
 
 void TurnRight(){//Giro Izquierda    
-    while (direccioni<MAXDIRI)
-    {
-        direccioni=direccioni+DDIRI;
-        PWM_Dir_WriteCompare2(direccioni);
-        direcciond=direcciond+DDIRD;
-        PWM_Dir_WriteCompare1(direcciond);
-        CyDelay(80);
-    }
+//    while (direccioni<MAXDIRI)
+//    {
+//        direccioni=direccioni+DDIRI;
+//        PWM_Dir_WriteCompare2(direccioni);
+//        direcciond=direcciond+DDIRD;
+//        PWM_Dir_WriteCompare1(direcciond);
+//        CyDelay(80);
+//    }
+    direccioni=MAXDIRI;
+    PWM_Dir_WriteCompare2(direccioni);
+    direcciond=MAXDIRD;
+    PWM_Dir_WriteCompare1(direcciond);
     INMD_Write(1);
     INMI_Write(1);
     banderaAC=true;
@@ -45,18 +49,39 @@ void TurnRight(){//Giro Izquierda
 }
 
 void TurnLefth(){
-    while(direccioni>MINDIRI)
-    {   
-        direccioni=direccioni-DDIRI;
-        PWM_Dir_WriteCompare2(direccioni); 
-        direcciond=direcciond-DDIRD;
-        PWM_Dir_WriteCompare1(direcciond);
-        CyDelay(80);
-    }
+//    while(direccioni>MINDIRI)
+//    {   
+//        direccioni=direccioni-DDIRI;
+//        PWM_Dir_WriteCompare2(direccioni); 
+//        direcciond=direcciond-DDIRD;
+//        PWM_Dir_WriteCompare1(direcciond);
+//        CyDelay(80);
+//    }
+    direccioni=MINDIRI;
+    PWM_Dir_WriteCompare2(direccioni); 
+    direcciond=MINDIRD;
+    PWM_Dir_WriteCompare1(direcciond);
     INMD_Write(1);
     INMI_Write(1);
     banderaAC=true;
 }
+
+void Adelante(){
+    if(direcciond!=2240){
+    direccioni=4080;
+    direcciond=2240;
+    PWM_Dir_WriteCompare1(2240);
+    PWM_Dir_WriteCompare2(4080);            
+    }
+    INMD_Write(1);
+    INMI_Write(1);
+    velo=105;
+    banderaAC=true;
+}
+
+
+
+
 
 CY_ISR(InterrupRx){
     dato=UART_GetChar();//recibe el dato del bluetooth
@@ -89,13 +114,13 @@ CY_ISR(InterrupRx){
         }
          case '4':{
             //Adelante Fin
-            velo=105;
-            banderaA=false;
-            banderaAC=false;
+            
             PWM_Motores_WriteCompare1(0);
             PWM_Motores_WriteCompare2(0);
             INMD_Write(0);
             INMI_Write(0);
+            banderaAC=false;
+            velo=105;
             break;
         }
         case '5':{
@@ -105,16 +130,6 @@ CY_ISR(InterrupRx){
             INMD_Write(0);
             INMI_Write(0);
             banderaAT=false;
-            break;
-        }case '6':
-        {
-            //Derehcha 10 °
-            banderaAC=false;
-            break;
-        }
-        case '7':{
-            //Izquierda  10 °
-            banderaAC=false;
             break;
         }
         case 'X':
@@ -149,6 +164,7 @@ CY_ISR(InterrupRx){
         }
         case 'D':{
             //Lanzar Bola
+
             
             break;
         }
@@ -180,7 +196,6 @@ int main(void)
     PWM_Dir_Start();
     PWM_Dir_WriteCompare1(direcciond);//en cero
     PWM_Dir_WriteCompare2(direccioni);//en cero
-    //Puerta
     PWM_Door_Start();
     PWM_Door_WriteCompare1(5500); 
     //0 grados = 5500
@@ -202,29 +217,33 @@ int main(void)
         }
         
         if(banderaA){
-            if(direcciond!=2240){
-                direccioni=4080;
-                direcciond=2240;
-                PWM_Dir_WriteCompare1(2240);
-                PWM_Dir_WriteCompare2(4080);            
-                CyDelay(100);
-            }
-            INMD_Write(1);
-            INMI_Write(1);
-            velo=105;
-            banderaAC=true;
+            Adelante();
             banderaA=false;
         }
         
+        if(banderaL){
+            TurnLefth();
+            banderaL=false;
+        }
+        if(banderaR){
+            TurnRight(); 
+            banderaR=false;
+        }
         if(banderaAC){ 
             PWM_Motores_WriteCompare1(velo);
             PWM_Motores_WriteCompare2(velo);
             if(velo<255){
-                velo=velo+25;
+                velo=velo+50;
                 CyDelay(1000);
+            }else{
+                banderaAC=false;
+                PWM_Motores_WriteCompare1(0);
+                PWM_Motores_WriteCompare2(0);
+                INMD_Write(0);
+                INMI_Write(0);
+                velo=105;
             }   
         }
-        
         if(banderaAT){
             if(direcciond!=2240){
                 direccioni=4080;
@@ -238,15 +257,6 @@ int main(void)
             PWM_Motores_WriteCompare1(100);
             PWM_Motores_WriteCompare2(100); 
         }
-        
-        if(banderaL){
-            TurnLefth();
-            banderaL=false;
-        }
-        if(banderaR){
-            TurnRight(); 
-            banderaR=false;
-        }
         if(banderaS){
             INMA_Write(1);
             PWM_Door_WriteCompare2(23500);
@@ -254,7 +264,16 @@ int main(void)
             PWM_Door_WriteCompare2(0);
             banderaS=false;
         }
-        //
+        if(banderaD){
+            INMA_Write(1);
+            Lanzamiento_Write(1);
+            CyDelay(1500);
+            INMA_Write(1);
+            Lanzamiento_Write(0);
+            banderaD=false;
+        }
+        
+        
     }
 }
 

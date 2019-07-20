@@ -2,7 +2,7 @@
 --	Conversion of Prototipo.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Jul 19 14:24:52 2019
+--	Fri Jul 19 18:11:13 2019
 --
 
 USE cypress.cypress.all;
@@ -1628,6 +1628,14 @@ SIGNAL tmpIO_1__INMA_net_1 : bit;
 SIGNAL tmpIO_1__INMA_net_0 : bit;
 TERMINAL tmpSIOVREF__INMA_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__INMA_net_0 : bit;
+SIGNAL tmpOE__INMAD_net_1 : bit;
+SIGNAL tmpOE__INMAD_net_0 : bit;
+SIGNAL tmpFB_1__INMAD_net_1 : bit;
+SIGNAL tmpFB_1__INMAD_net_0 : bit;
+SIGNAL tmpIO_1__INMAD_net_1 : bit;
+SIGNAL tmpIO_1__INMAD_net_0 : bit;
+TERMINAL tmpSIOVREF__INMAD_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__INMAD_net_0 : bit;
 SIGNAL \PWM_Motores:PWMUDB:min_kill_reg\\D\ : bit;
 SIGNAL \PWM_Motores:PWMUDB:prevCapture\\D\ : bit;
 SIGNAL \PWM_Motores:PWMUDB:trig_last\\D\ : bit;
@@ -3804,6 +3812,76 @@ INMA:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__INMA_net_0);
+INMAD:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"ba93b204-fc16-41e9-98f6-1803f12df63d",
+		drive_mode=>"110110",
+		ibuf_enabled=>"11",
+		init_dr_st=>"00",
+		input_sync=>"11",
+		input_clk_en=>'0',
+		input_sync_mode=>"00",
+		intr_mode=>"0000",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>",",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"00",
+		output_sync=>"00",
+		output_clk_en=>'0',
+		output_mode=>"00",
+		output_reset=>'0',
+		output_clock_mode=>"00",
+		oe_sync=>"00",
+		oe_conn=>"00",
+		oe_reset=>'0',
+		pin_aliases=>",",
+		pin_mode=>"OO",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"11",
+		sio_ibuf=>"00000000",
+		sio_info=>"0000",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"00",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"1010",
+		width=>2,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"00",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"00",
+		ovt_slew_control=>"0000",
+		ovt_hyst_trim=>"00",
+		input_buffer_sel=>"0000")
+	PORT MAP(oe=>(one, one),
+		y=>(zero, zero),
+		fb=>(tmpFB_1__INMAD_net_1, tmpFB_1__INMAD_net_0),
+		analog=>(open, open),
+		io=>(tmpIO_1__INMAD_net_1, tmpIO_1__INMAD_net_0),
+		siovref=>(tmpSIOVREF__INMAD_net_0),
+		annotation=>(open, open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__INMAD_net_0);
 \PWM_Motores:PWMUDB:min_kill_reg\:cy_dsrff
 	PORT MAP(d=>one,
 		s=>zero,

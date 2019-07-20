@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2019-07-19T19:25:06Z")
+ (DATE "2019-07-19T23:11:21Z")
  (DESIGN "Prototipo")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -313,6 +313,8 @@
     (INTERCONNECT Lanzamiento\(0\)_PAD Lanzamiento\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT INMA\(0\)_PAD INMA\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT INMA\(1\)_PAD INMA\(1\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT INMAD\(0\)_PAD INMAD\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT INMAD\(1\)_PAD INMAD\(1\).pad_in (0.000:0.000:0.000))
    )
   )
  )

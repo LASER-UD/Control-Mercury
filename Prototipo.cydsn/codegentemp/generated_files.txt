@@ -85,6 +85,9 @@
   <file name="C:\Users\LASER_2\Documents\Control-Mercury\Prototipo.cydsn\codegentemp\INMA_aliases.h" value="HEADER;;;;;INMA" />
   <file name="C:\Users\LASER_2\Documents\Control-Mercury\Prototipo.cydsn\codegentemp\INMA.c" value="SOURCE_C;CortexM3;;;;INMA" />
   <file name="C:\Users\LASER_2\Documents\Control-Mercury\Prototipo.cydsn\codegentemp\INMA.h" value="HEADER;;;;;INMA" />
+  <file name="C:\Users\LASER_2\Documents\Control-Mercury\Prototipo.cydsn\codegentemp\INMAD_aliases.h" value="HEADER;;;;;INMAD" />
+  <file name="C:\Users\LASER_2\Documents\Control-Mercury\Prototipo.cydsn\codegentemp\INMAD.c" value="SOURCE_C;CortexM3;;;;INMAD" />
+  <file name="C:\Users\LASER_2\Documents\Control-Mercury\Prototipo.cydsn\codegentemp\INMAD.h" value="HEADER;;;;;INMAD" />
   <file name="C:\Users\LASER_2\Documents\Control-Mercury\Prototipo.cydsn\codegentemp\UART_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_IntClock" />
   <file name="C:\Users\LASER_2\Documents\Control-Mercury\Prototipo.cydsn\codegentemp\UART_IntClock.h" value="HEADER;;;;;UART_IntClock" />
   <file name="C:\Users\LASER_2\Documents\Control-Mercury\Prototipo.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM3;;;;Em_EEPROM_Dynamic" />

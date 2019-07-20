@@ -1,5 +1,5 @@
 -- Project:   Prototipo
--- Generated: 07/19/2019 14:25:00
+-- Generated: 07/19/2019 18:11:18
 -- PSoC Creator  4.2
 
 ENTITY Prototipo IS
@@ -21,7 +21,9 @@ ENTITY Prototipo IS
         PWMdoor(0)_PAD : OUT std_ulogic;
         Lanzamiento(0)_PAD : OUT std_ulogic;
         INMA(0)_PAD : OUT std_ulogic;
-        INMA(1)_PAD : OUT std_ulogic);
+        INMA(1)_PAD : OUT std_ulogic;
+        INMAD(0)_PAD : OUT std_ulogic;
+        INMAD(1)_PAD : OUT std_ulogic);
     ATTRIBUTE voltage_VDDABUF OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VUSB OF __DEFAULT__ : ENTITY IS 5e0;
@@ -47,6 +49,8 @@ ARCHITECTURE __DEFAULT__ OF Prototipo IS
     SIGNAL ClockBlock_XTAL_32KHZ : bit;
     SIGNAL INMA(0)__PA : bit;
     SIGNAL INMA(1)__PA : bit;
+    SIGNAL INMAD(0)__PA : bit;
+    SIGNAL INMAD(1)__PA : bit;
     SIGNAL INMD(0)__PA : bit;
     SIGNAL INMD(1)__PA : bit;
     SIGNAL INMI(0)__PA : bit;
@@ -274,11 +278,15 @@ ARCHITECTURE __DEFAULT__ OF Prototipo IS
     ATTRIBUTE lib_model OF PWMdoor(0) : LABEL IS "iocell15";
     ATTRIBUTE Location OF PWMdoor(0) : LABEL IS "P1[5]";
     ATTRIBUTE lib_model OF Lanzamiento(0) : LABEL IS "iocell16";
-    ATTRIBUTE Location OF Lanzamiento(0) : LABEL IS "P15[5]";
+    ATTRIBUTE Location OF Lanzamiento(0) : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF INMA(0) : LABEL IS "iocell17";
     ATTRIBUTE Location OF INMA(0) : LABEL IS "P0[3]";
     ATTRIBUTE lib_model OF INMA(1) : LABEL IS "iocell18";
     ATTRIBUTE Location OF INMA(1) : LABEL IS "P0[4]";
+    ATTRIBUTE lib_model OF INMAD(0) : LABEL IS "iocell19";
+    ATTRIBUTE Location OF INMAD(0) : LABEL IS "P12[2]";
+    ATTRIBUTE lib_model OF INMAD(1) : LABEL IS "iocell20";
+    ATTRIBUTE Location OF INMAD(1) : LABEL IS "P12[3]";
     ATTRIBUTE lib_model OF \PWM_Motores:PWMUDB:status_2\ : LABEL IS "macrocell1";
     ATTRIBUTE Location OF \PWM_Motores:PWMUDB:status_2\ : LABEL IS "U(2,4)";
     ATTRIBUTE lib_model OF Net_23 : LABEL IS "macrocell2";
@@ -2145,6 +2153,115 @@ BEGIN
             pa_out => INMA(1)__PA,
             oe => open,
             pad_in => INMA(1)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    INMAD:logicalport
+        GENERIC MAP(
+            drive_mode => "110110",
+            ibuf_enabled => "11",
+            id => "ba93b204-fc16-41e9-98f6-1803f12df63d",
+            init_dr_st => "00",
+            input_buffer_sel => "0000",
+            input_clk_en => 0,
+            input_sync => "11",
+            input_sync_mode => "00",
+            intr_mode => "0000",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => ",",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "00",
+            oe_reset => 0,
+            oe_sync => "00",
+            output_clk_en => 0,
+            output_clock_mode => "00",
+            output_conn => "00",
+            output_mode => "00",
+            output_reset => 0,
+            output_sync => "00",
+            ovt_hyst_trim => "00",
+            ovt_needed => "00",
+            ovt_slew_control => "0000",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => ",",
+            pin_mode => "OO",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "11",
+            sio_ibuf => "00000000",
+            sio_info => "0000",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "00",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "00",
+            vtrip => "1010",
+            width => 2,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    INMAD(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "INMAD",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => INMAD(0)__PA,
+            oe => open,
+            pad_in => INMAD(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    INMAD(1):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "INMAD",
+            logicalport_pin_id => 1,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
+        PORT MAP(
+            pa_out => INMAD(1)__PA,
+            oe => open,
+            pad_in => INMAD(1)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
