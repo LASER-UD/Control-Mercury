@@ -1,5 +1,5 @@
 -- Project:   Prototipo
--- Generated: 07/19/2019 23:56:11
+-- Generated: 07/20/2019 17:22:54
 -- PSoC Creator  4.2
 
 ENTITY Prototipo IS
@@ -219,9 +219,9 @@ ARCHITECTURE __DEFAULT__ OF Prototipo IS
     ATTRIBUTE lib_model OF LED(0) : LABEL IS "iocell5";
     ATTRIBUTE Location OF LED(0) : LABEL IS "P2[1]";
     ATTRIBUTE lib_model OF SDA(0) : LABEL IS "iocell6";
-    ATTRIBUTE Location OF SDA(0) : LABEL IS "P12[5]";
+    ATTRIBUTE Location OF SDA(0) : LABEL IS "P12[6]";
     ATTRIBUTE lib_model OF SCL(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF SCL(0) : LABEL IS "P12[4]";
+    ATTRIBUTE Location OF SCL(0) : LABEL IS "P12[5]";
     ATTRIBUTE lib_model OF PWMdir_I(0) : LABEL IS "iocell8";
     ATTRIBUTE Location OF PWMdir_I(0) : LABEL IS "P1[7]";
     ATTRIBUTE lib_model OF PWMdir_D(0) : LABEL IS "iocell9";
@@ -245,9 +245,9 @@ ARCHITECTURE __DEFAULT__ OF Prototipo IS
     ATTRIBUTE lib_model OF INMA(1) : LABEL IS "iocell18";
     ATTRIBUTE Location OF INMA(1) : LABEL IS "P0[4]";
     ATTRIBUTE lib_model OF INMAD(0) : LABEL IS "iocell19";
-    ATTRIBUTE Location OF INMAD(0) : LABEL IS "P12[2]";
+    ATTRIBUTE Location OF INMAD(0) : LABEL IS "P12[3]";
     ATTRIBUTE lib_model OF INMAD(1) : LABEL IS "iocell20";
-    ATTRIBUTE Location OF INMAD(1) : LABEL IS "P12[3]";
+    ATTRIBUTE Location OF INMAD(1) : LABEL IS "P12[4]";
     ATTRIBUTE lib_model OF \PWM_Motores:PWMUDB:status_2\ : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF Net_23 : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \UART:BUART:counter_load_not\ : LABEL IS "macrocell3";
