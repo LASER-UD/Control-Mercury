@@ -4,29 +4,28 @@
 #include <stdbool.h>
 #include "GP2Y0E03.h"
 
-const int MAXDIRI=4435; 
-const int MINDIRI=3695;
+//const int MAXDIRI=4435; 
+//const int MINDIRI=3695;
 
-const int CENDIRI=4065;
-const int CENDIRD=2225;
+//const int CENDIRI=4065;
+//const int CENDIRD=2225;
 
-const int MAXDIRD=2595;
-const int MINDIRD=1855;
+//const int MAXDIRD=2595;
+//const int MINDIRD=1855;
 
-const int DDIRI=37;
-const int DDIRD=37;
+//const int DDIRI=37;
+//const int DDIRD=37;
 
 
 char buffer2[12]={};
 int16 temp,count;
 unsigned char valor;
 unsigned char velo=105;
-volatile unsigned int direcciond=2240;//
-volatile unsigned int direccioni=4080;//CENTRO
-volatile bool banderaS=false,banderaG=false,banderaAC=false,banderaMA=false,banderaA=false, banderaDoor = false,banderaR=false,banderaL=false,banderaAT=false,banderaD=false;
+//volatile unsigned int direcciond=2240;//
+//volatile unsigned int direccioni=4080;//CENTRO
+volatile bool banderaS=false,banderaG=false,banderaAC=false,banderaMA=false,banderaA=false,banderaDoor=false,banderaR=false,banderaL=false,banderaAT=false,banderaD=false;
 volatile char dato;
-unsigned char cont=0; 
-
+unsigned char cont=0;
 
 
 
