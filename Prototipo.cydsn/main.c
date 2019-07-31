@@ -23,78 +23,83 @@ unsigned char valor;
 unsigned char velo=105;
 //volatile unsigned int direcciond=2240;//
 //volatile unsigned int direccioni=4080;//CENTRO
-volatile bool banderaS=false,banderaG=false,banderaAC=false,banderaMA=false,banderaA=false,banderaDoor=false,banderaR=false,banderaL=false,banderaAT=false,banderaD=false;
+volatile bool banderaS=false,banderaG=false,banderaForward=false,banderaPause=false,banderaDoor=false,banderaR=false,banderaL=false,banderaSpeed=false,banderaD=false,banderaBack=false,banderaMax=false,banderaInfra=false;
 volatile char dato;
 unsigned char cont=0;
 
 
 
-void TurnRight(){//Giro Izquierda
-    banderaMA=true;
-    while (direccioni<MAXDIRI)
-    {
-        direccioni=direccioni+DDIRI;
-        PWM_Dir_WriteCompare2(direccioni);
-        direcciond=direcciond+DDIRD;
-        PWM_Dir_WriteCompare1(direcciond);
-        CyDelay(80);
-    }
-    INMD_Write(1);
-    INMI_Write(1);
-    PWM_Motores_WriteCompare2(70);
-    PWM_Motores_WriteCompare1(210);
-            
+
+
+
+
+void TurnRight(){
+    IMPD_Write(1);// 1 ADELANTE 2 ATRAS
+    IMAD_Write(1);
+    IMPI_Write(2);
+    IMAI_Write(2);
+    PWM_Motores_A_WriteCompare1(100);
+    PWM_Motores_A_WriteCompare2(255);
+    PWM_Motores_P_WriteCompare1(100);
+    PWM_Motores_P_WriteCompare2(255);
 }
+
+
 
 void TurnLefth(){
-    banderaMA=true;
-    while(direccioni>MINDIRI)
-    {   
-        direccioni=direccioni-DDIRI;
-        PWM_Dir_WriteCompare2(direccioni); 
-        direcciond=direcciond-DDIRD;
-        PWM_Dir_WriteCompare1(direcciond);
-        CyDelay(80);
-    }   
-    INMD_Write(1);
-    INMI_Write(1);
-    PWM_Motores_WriteCompare2(220);
-    PWM_Motores_WriteCompare1(80);
+    IMPD_Write(2);// 1 ADELANTE 2 ATRAS
+    IMAD_Write(2);
+    IMPI_Write(1);
+    IMAI_Write(1);
+    PWM_Motores_A_WriteCompare1(255);
+    PWM_Motores_A_WriteCompare2(100);
+    PWM_Motores_P_WriteCompare1(255);
+    PWM_Motores_P_WriteCompare2(100);
+    
 }
 
-void Adelante(){
-    banderaMA=true;
-    if(direcciond!=2240){
-        direccioni=4080;
-        direcciond=2240;
-        PWM_Dir_WriteCompare1(2240);
-        PWM_Dir_WriteCompare2(4080);
-        CyDelay(100);
+void Forward(){
+    IMPD_Write(1);// 1 ADELANTE 2 ATRAS
+    IMAD_Write(1);
+    IMPI_Write(1);
+    IMAI_Write(1);
+    if(!banderaMax){
+        banderaSpeed=true;
     }
-    INMD_Write(1);
-    INMI_Write(1);
-    velo=105;
-    PWM_Motores_WriteCompare1(velo);
-    PWM_Motores_WriteCompare2(velo);
-    banderaAC=true;
 }
 
-CY_ISR(InterrupRx){
+void Back(){
+    IMPD_Write(2);// 1 ADELANTE 2 ATRAS
+    IMAD_Write(2);
+    IMPI_Write(2);
+    IMAI_Write(2);
+    PWM_Motores_A_WriteCompare1(200);
+    PWM_Motores_A_WriteCompare2(200);
+    PWM_Motores_P_WriteCompare1(200);
+    PWM_Motores_P_WriteCompare2(200);
+
+}
+
+CY_ISR(InterruptINFRA){
+    if(!banderaInfra){
+        PWM_D_A_WriteCompare1(2000);
+    }       
+    INFRA_ClearInterrupt();
+}
+
+
+
+CY_ISR(InterruptRx){
     dato=UART_GetChar();//recibe el dato del bluetooth
     switch (dato){
-        case 'g':{
-            //Pide datos de sensor
-            banderaG=true;        
-            break;
-        }
         case '0':{
         //Adelante Inicio
-            banderaA=true;
+            banderaForward=true;
             break;
         }
         case '1':{
             //Atras Inicio
-            banderaAT=true;            
+            banderaBack=true;            
             break;
         }
         case '2':
@@ -110,20 +115,12 @@ CY_ISR(InterrupRx){
         }
          case '4':{
             //Adelante Fin
-            PWM_Motores_WriteCompare1(0);
-            PWM_Motores_WriteCompare2(0);
-            INMD_Write(0);
-            INMI_Write(0);
-            banderaMA=false;
+            banderaPause=false;
             break;
         }
         case '5':{
             // Atras Fin
-            PWM_Motores_WriteCompare1(0);
-            PWM_Motores_WriteCompare2(0);
-            INMD_Write(0);
-            INMI_Write(0);
-            banderaMA=false;
+            banderaPause=false;
             break;
         }
         case 'X':
@@ -147,10 +144,11 @@ CY_ISR(InterrupRx){
         case 'W':
         {   //Ingreso de bola
             if(banderaDoor){                
-                PWM_Door_WriteCompare1(5500); //Pasa a 180 grados
+                PWM_D_A_WriteCompare1(5500); //Pasa a 180 grados
+                banderaInfra=false;
                 banderaDoor=false;
             }else{
-                PWM_Door_WriteCompare1(2000); // pasa a 0 grados
+                PWM_D_A_WriteCompare1(2000); // pasa a 0 grados
                 banderaDoor=true;
             }
             
@@ -162,8 +160,14 @@ CY_ISR(InterrupRx){
             break;
         }
         case 'A':{
-            //Sprint 
-            
+            //Sprint
+            if(!banderaMax){
+                velo=255;
+                banderaMax=true;
+            }else{
+                velo=105;
+                banderaMax=false;
+            }
             break;
         }
         default:
@@ -180,39 +184,61 @@ int main(void)
     CyGlobalIntEnable; /* Enable global interrupts. */
     /*Inicia los Modulos */
     UART_Start(); 
-    IRQRX_StartEx(InterrupRx);
-    PWM_Motores_Start();
-    INMD_Write(0);
-    INMI_Write(0);
-    PWM_Motores_WriteCompare1(0);
-    PWM_Motores_WriteCompare2(0);
-    PWM_Dir_Start();
-    PWM_Dir_WriteCompare1(direcciond);//en cero
-    PWM_Dir_WriteCompare2(direccioni);//en cero
-    PWM_Door_Start();
-    PWM_Door_WriteCompare1(5500); 
-    //0 grados = 5500
-    //90 grados = 3200
-    //180 grados = 2000
-    // Ascensor
-    PWM_Door_WriteCompare2(0);
-    INMA_Write(0);
+    IRQRX_StartEx(InterruptRx);
+    IRQINFRA_StartEx(InterruptINFRA);
+    //---Motores----//
+    PWM_Motores_A_Start();
+    PWM_Motores_A_WriteCompare1(0);
+    PWM_Motores_A_WriteCompare2(0);
+    IMAD_Write(0);
+    IMAI_Write(0);
+    PWM_Motores_P_Start();
+    PWM_Motores_P_WriteCompare1(0);
+    PWM_Motores_P_WriteCompare2(0);
+    IMPD_Write(0);
+    IMPI_Write(0);
+    //----Ascensor---
+    PWM_D_A_Start();
+    PWM_D_A_WriteCompare1(0);
+    IMAS_Write(0);
+    //---Puerta-----
+    PWM_D_A_WriteCompare1(5500);
+    //----Lanzamiento---
+    IML_Write(0);
+    //--- SENSOR---
     //DS_init(0x40);//Inicia sensor de distancia
     for(;;)
     {
-        if(banderaAC){
-            if((velo<255)&&(banderaMA)){
+        if(banderaSpeed){
+            if((velo<255)&&(!banderaPause)){
+                PWM_Motores_A_WriteCompare1(velo);
+                PWM_Motores_A_WriteCompare2(velo);
+                PWM_Motores_P_WriteCompare1(velo);
+                PWM_Motores_P_WriteCompare2(velo);
                 velo=velo+10;
-                PWM_Motores_WriteCompare1(velo);
-                PWM_Motores_WriteCompare2(velo);
             }else{
-                banderaAC=false;
+                banderaSpeed=false;
             }  
         }
         
-        if(banderaA){
-            Adelante();
-            banderaA=false;
+        if(banderaPause){
+                PWM_Motores_A_WriteCompare1(0);
+                PWM_Motores_A_WriteCompare2(0);
+                PWM_Motores_P_WriteCompare1(0);
+                PWM_Motores_P_WriteCompare2(0);
+                IMPD_Write(0);// 1 ADELANTE 2 ATRAS
+                IMAD_Write(0);
+                IMPI_Write(0);
+                IMAI_Write(0);
+                if(!banderaMax){
+                    velo=105;
+                }
+        }
+        
+        
+        if(banderaForward){
+            Forward();
+            banderaForward=false;
         }
         
         if(banderaL){
@@ -224,50 +250,29 @@ int main(void)
             TurnRight();
             banderaR=false;
         }
-        if(banderaAT){
-            if(direcciond!=2240){
-                direccioni=4080;
-                direcciond=2240;
-                PWM_Dir_WriteCompare1(2240);
-                PWM_Dir_WriteCompare2(4080);            
-                CyDelay(100);
-            }
-            INMD_Write(2);
-            INMI_Write(2);
-            PWM_Motores_WriteCompare1(100);
-            PWM_Motores_WriteCompare2(100);
-            banderaMA=true;
-            banderaAT=false;
+        
+        if(banderaBack){
+            Back();
+            banderaBack=false;
+            
         }
-        if(banderaS){
-            INMA_Write(1);
-            PWM_Door_WriteCompare2(23500);
+        if(banderaS){//Ascensor
+            IMAS_Write(1);
+            PWM_D_A_WriteCompare2(23500);
             CyDelay(2200);
-            PWM_Door_WriteCompare2(0);
+            PWM_D_A_WriteCompare2(0);
             banderaS=false;
         }
         if(banderaD){
-            INMAD_Write(1);
+            IML_Write(1);
             Lanzamiento_Write(1);
             CyDelay(800);
             Lanzamiento_Write(0);
             banderaD=false;
         }
-        if(!banderaMA){
-                PWM_Motores_WriteCompare1(0);
-                PWM_Motores_WriteCompare2(0);
-                INMD_Write(0);
-                INMI_Write(0);
-                velo=105;
-        }else{
-            cont=cont+1;
-            if(cont==30){
-                banderaMA=false;
-                cont=0;
-            }
             CyDelay(100);
         }
-    }
 }
+
 
 /* [] END OF FILE */
