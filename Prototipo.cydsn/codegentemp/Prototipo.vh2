@@ -2,7 +2,7 @@
 --	Conversion of Prototipo.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Jul 31 12:07:11 2019
+--	Wed Jul 31 17:00:38 2019
 --
 
 USE cypress.cypress.all;
@@ -1580,11 +1580,11 @@ SIGNAL tmpIO_1__IMAD_net_1 : bit;
 SIGNAL tmpIO_1__IMAD_net_0 : bit;
 TERMINAL tmpSIOVREF__IMAD_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__IMAD_net_0 : bit;
+SIGNAL Net_3 : bit;
 SIGNAL tmpOE__INFRA_net_0 : bit;
 SIGNAL tmpFB_0__INFRA_net_0 : bit;
 SIGNAL tmpIO_0__INFRA_net_0 : bit;
 TERMINAL tmpSIOVREF__INFRA_net_0 : bit;
-SIGNAL Net_2220 : bit;
 SIGNAL \PWM_Motores_P:PWMUDB:min_kill_reg\\D\ : bit;
 SIGNAL \PWM_Motores_P:PWMUDB:prevCapture\\D\ : bit;
 SIGNAL \PWM_Motores_P:PWMUDB:trig_last\\D\ : bit;
@@ -3885,15 +3885,19 @@ IMAD:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__IMAD_net_0);
+ISR_FOTO:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_3);
 INFRA:cy_psoc3_pins_v1_10
-	GENERIC MAP(id=>"8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba",
-		drive_mode=>"001",
+	GENERIC MAP(id=>"7d5c70a9-35d0-4068-b170-baf6836d59eb",
+		drive_mode=>"010",
 		ibuf_enabled=>"1",
-		init_dr_st=>"0",
+		init_dr_st=>"1",
 		input_sync=>"0",
 		input_clk_en=>'0',
 		input_sync_mode=>"0",
-		intr_mode=>"01",
+		intr_mode=>"10",
 		invert_in_clock=>'0',
 		invert_in_clock_en=>'0',
 		invert_in_reset=>'0',
@@ -3954,11 +3958,7 @@ INFRA:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>one,
 		out_reset=>zero,
-		interrupt=>Net_2220);
-IRQINFRA:cy_isr_v1_0
-	GENERIC MAP(int_type=>"10",
-		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_2220);
+		interrupt=>Net_3);
 \PWM_Motores_P:PWMUDB:min_kill_reg\:cy_dsrff
 	PORT MAP(d=>one,
 		s=>zero,

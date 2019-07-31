@@ -1,6 +1,7 @@
-C:\Users\LASER_2\Documents\Control-Mercury\Prototipo.cydsn\Prototipo.cyprj|a7f4f8a7-7525-454b-ae2b-31175184d4e8
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|4da69c2a-6bb4-44ce-871d-02fdd6cd8642
-C:\Users\LASER_2\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|0144dcfa-4622-4471-bedf-4acc1d9e6617
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|40aa42fb-1e99-4ad8-bb7a-b53ecc11e26d
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|e7ebd270-5cd8-4c90-97d1-9ac4d91fcbfa
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|69ab329b-fe51-4136-b43a-a0704d74c40b
+C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\Prototipo.cyprj|c22abda3-e1db-4339-b248-7ab38d614abc
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|67ba9765-a047-4d3d-b327-2b0fc44c52ae
+C:\Users\Laser\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|c7554444-96cb-48a9-a3a5-6abc0986c357
+C:\Users\Laser\Documents\PSoC Creator\4.1\Downloads ( 4.1).cylib\Downloads ( 4.1).cyprj|96d3d350-7325-4549-a1a1-807e04f9839d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|8191ed6b-3f8b-48df-a66c-e0c68f07e3a2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|672b02ae-8439-4803-bec9-c5deefcdf283
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|5974bba2-f5c0-44dc-b901-753546fcbf7b

@@ -23,12 +23,9 @@ unsigned char valor;
 unsigned char velo=105;
 //volatile unsigned int direcciond=2240;//
 //volatile unsigned int direccioni=4080;//CENTRO
-volatile bool banderaS=false,banderaG=false,banderaForward=false,banderaPause=false,banderaDoor=false,banderaR=false,banderaL=false,banderaSpeed=false,banderaD=false,banderaBack=false,banderaMax=false,banderaInfra=false;
+volatile bool banderaS=false,banderaG=false,banderaForward=false,banderaPause=false,banderaDoor=true,banderaR=false,banderaL=false,banderaSpeed=false,banderaD=false,banderaBack=false,banderaMax=false,banderaW=false;
 volatile char dato;
 unsigned char cont=0;
-
-
-
 
 
 
@@ -80,12 +77,7 @@ void Back(){
 
 }
 
-CY_ISR(InterruptINFRA){
-    if(!banderaInfra){
-        PWM_D_A_WriteCompare1(2000);
-    }       
-    INFRA_ClearInterrupt();
-}
+
 
 
 
@@ -143,15 +135,8 @@ CY_ISR(InterruptRx){
         }
         case 'W':
         {   //Ingreso de bola
-            if(banderaDoor){                
-                PWM_D_A_WriteCompare1(5500); //Pasa a 180 grados
-                banderaInfra=false;
-                banderaDoor=false;
-            }else{
-                PWM_D_A_WriteCompare1(2000); // pasa a 0 grados
-                banderaDoor=true;
-            }
-            
+
+            banderaW=true;
             break;
         }
         case 'D':{
@@ -177,15 +162,22 @@ CY_ISR(InterruptRx){
     }
 }
 
+CY_ISR(InterruptFoto){
+    if(!banderaDoor){
+        PWM_D_A_WriteCompare1(2000);
+        banderaDoor=true;
+    }
+    INFRA_ClearInterrupt();
+}
 
 int main(void)
 {
     /*Instancia lo modulos */
     CyGlobalIntEnable; /* Enable global interrupts. */
     /*Inicia los Modulos */
+    LED_Write(0);
     UART_Start(); 
     IRQRX_StartEx(InterruptRx);
-    IRQINFRA_StartEx(InterruptINFRA);
     //---Motores----//
     PWM_Motores_A_Start();
     PWM_Motores_A_WriteCompare1(0);
@@ -207,6 +199,10 @@ int main(void)
     IML_Write(0);
     //--- SENSOR---
     //DS_init(0x40);//Inicia sensor de distancia
+    //--Sensor de puerta----
+    CyDelay(500);
+    ISR_FOTO_StartEx(InterruptFoto);
+    banderaDoor=false;
     for(;;)
     {
         if(banderaSpeed){
@@ -269,6 +265,19 @@ int main(void)
             CyDelay(800);
             Lanzamiento_Write(0);
             banderaD=false;
+        }
+        
+        if(banderaW){
+            if(banderaDoor){                
+                PWM_D_A_WriteCompare1(5500); //Pasa a 180 grados
+                CyDelay(500);
+                banderaDoor=false;
+            }else{
+                PWM_D_A_WriteCompare1(2000); // pasa a 0 grados
+                banderaDoor=true;
+            }
+            banderaW=false;
+            
         }
             CyDelay(100);
         }

@@ -1,6 +1,6 @@
 // ======================================================================
 // Prototipo.v generated from TopDesign.cysch
-// 07/31/2019 at 12:07
+// 07/31/2019 at 17:00
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -811,7 +811,7 @@ module top ;
           wire  Net_1565;
           wire  Net_2008;
           wire  Net_453;
-          wire  Net_2220;
+          wire  Net_3;
           wire  Net_90;
           wire  Net_2029;
           wire  Net_2045;
@@ -2340,20 +2340,27 @@ module top ;
 
 	assign tmpOE__IMAD_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{2'b11} : {2'b11};
 
+
+	cy_isr_v1_0
+		#(.int_type(2'b10))
+		ISR_FOTO
+		 (.int_signal(Net_3));
+
+
 	wire [0:0] tmpOE__INFRA_net;
 	wire [0:0] tmpFB_0__INFRA_net;
 	wire [0:0] tmpIO_0__INFRA_net;
 	electrical [0:0] tmpSIOVREF__INFRA_net;
 
 	cy_psoc3_pins_v1_10
-		#(.id("8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba"),
-		  .drive_mode(3'b001),
+		#(.id("7d5c70a9-35d0-4068-b170-baf6836d59eb"),
+		  .drive_mode(3'b010),
 		  .ibuf_enabled(1'b1),
-		  .init_dr_st(1'b0),
+		  .init_dr_st(1'b1),
 		  .input_clk_en(0),
 		  .input_sync(1'b0),
 		  .input_sync_mode(1'b0),
-		  .intr_mode(2'b01),
+		  .intr_mode(2'b10),
 		  .invert_in_clock(0),
 		  .invert_in_clock_en(0),
 		  .invert_in_reset(0),
@@ -2404,7 +2411,7 @@ module top ;
 		  .fb({tmpFB_0__INFRA_net[0:0]}),
 		  .io({tmpIO_0__INFRA_net[0:0]}),
 		  .siovref(tmpSIOVREF__INFRA_net),
-		  .interrupt({Net_2220}),
+		  .interrupt({Net_3}),
 		  .in_clock({1'b0}),
 		  .in_clock_en({1'b1}),
 		  .in_reset({1'b0}),
@@ -2413,13 +2420,6 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__INFRA_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
-
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		IRQINFRA
-		 (.int_signal(Net_2220));
-
 
 
 
