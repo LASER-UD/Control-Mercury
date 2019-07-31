@@ -258,7 +258,7 @@ int main(void)
         }
         if(banderaS){//Ascensor
             IMAS_Write(1);
-            PWM_D_A_WriteCompare2(23500);
+            PWM_D_A_WriteCompare2(24000);
             CyDelay(2200);
             PWM_D_A_WriteCompare2(0);
             banderaS=false;

@@ -1,6 +1,6 @@
 // ======================================================================
 // Prototipo.v generated from TopDesign.cysch
-// 07/30/2019 at 18:23
+// 07/31/2019 at 12:07
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -2353,7 +2353,7 @@ module top ;
 		  .input_clk_en(0),
 		  .input_sync(1'b0),
 		  .input_sync_mode(1'b0),
-		  .intr_mode(2'b10),
+		  .intr_mode(2'b01),
 		  .invert_in_clock(0),
 		  .invert_in_clock_en(0),
 		  .invert_in_reset(0),
