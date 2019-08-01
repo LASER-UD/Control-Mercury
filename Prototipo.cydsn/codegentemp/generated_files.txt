@@ -99,6 +99,13 @@
   <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\INFRA_aliases.h" value="HEADER;;;;;INFRA" />
   <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\INFRA.c" value="SOURCE_C;CortexM3;;;;INFRA" />
   <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\INFRA.h" value="HEADER;;;;;INFRA" />
+  <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\TIMER.c" value="SOURCE_C;CortexM3;;;;TIMER" />
+  <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\TIMER.h" value="HEADER;;;;;TIMER" />
+  <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\TIMER_PM.c" value="SOURCE_C;CortexM3;;;;TIMER" />
+  <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ISR_TIMER.c" value="SOURCE_C;CortexM3;;;;ISR_TIMER" />
+  <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\ISR_TIMER.h" value="HEADER;;;;;ISR_TIMER" />
+  <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\Clock.c" value="SOURCE_C;CortexM3;;;;Clock" />
+  <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\Clock.h" value="HEADER;;;;;Clock" />
   <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\UART_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_IntClock" />
   <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\UART_IntClock.h" value="HEADER;;;;;UART_IntClock" />
   <file name="C:\Users\Laser\Documents\PSoC Creator\Control-Mercury\Prototipo.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM3;;;;Em_EEPROM_Dynamic" />

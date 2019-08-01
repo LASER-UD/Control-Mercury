@@ -3,7 +3,25 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "GP2Y0E03.h"
+#define GP2Y0Ed         0x40//default
+#define GP2Y0E          0x40//default
+#define SHIFT_BYTE      0x02 //64 cm shift = 2 128 cm shift = 1
+#define SHIFT_ADDR      0x35
+#define DISTANCE_ADDR1  0x5E
+#define DISTANCE_ADDR2  0x5F
+#define RIGHT_EDGE_ADDR 0xF8 // C
+#define LEFT_EDGE_ADDR  0xF9 // A
+#define PEAK_EDGE_ADDR  0xFA // B   
 
+volatile uint16 cf=1;
+const uint8 frecuencia=10;
+uint8 n=0;
+volatile _Bool muestreo=false;
+char buffer2[12]={};
+volatile char dato;
+char distance_cm=0;
+char buffer[12]={};
+_Bool inicio=false;
 //const int MAXDIRI=4435; 
 //const int MINDIRI=3695;
 
@@ -17,7 +35,7 @@
 //const int DDIRD=37;
 
 
-char buffer2[12]={};
+
 int16 temp,count;
 unsigned char valor;
 unsigned char velo=105;
@@ -27,7 +45,48 @@ volatile bool banderaS=false,banderaG=false,banderaForward=false,banderaPause=fa
 volatile char dato;
 unsigned char cont=0;
 
-
+CY_ISR(INTTIMER){
+    if(cf==frecuencia){
+        muestreo=true;cf=1;
+    }else{cf=cf+1;}
+}
+bool DS_beginread (char sladress){
+    bool out=true;
+    if(I2C_MasterSendStart(sladress, I2C_READ_XFER_MODE)!=I2C_MSTR_NO_ERROR){
+        I2C_MasterSendStop();
+        out=false;
+        I2C_Stop();
+        I2C_Start();
+        //UART_PutString("Tiempo exedido READ\r\n"); 
+    }
+    return out;
+}      //sladress= direccion del esclavo
+bool DS_beginwrite(char sladress){
+    bool out=true;
+    if(I2C_MasterSendStart(sladress, I2C_WRITE_XFER_MODE)!=I2C_MSTR_NO_ERROR){
+        I2C_MasterSendStop();
+        I2C_Stop();
+        I2C_Start();
+        out=false;
+        //UART_PutString("Tiempo exedido WRITE\r\n");  
+    }
+    return out;
+}
+unsigned char DS_get_data(char sladress){   
+    unsigned char distance_cm='0',    datai2c[2]={0,0};
+    if(DS_beginwrite(sladress)){            // inicia comunicacion
+        I2C_MasterWriteByte(DISTANCE_ADDR1);//Pone direccion de memoria que quiere leer 
+        I2C_MasterSendStop(); 
+        DS_beginread(sladress);
+        datai2c[0]=I2C_MasterReadByte(I2C_NAK_DATA);//captura el dato 1 con nak salta un registro para leer el siguiente espacio de memoria
+        datai2c[1]=I2C_MasterReadByte(I2C_NAK_DATA);// lee el siguiente espacio de memoria
+        I2C_MasterSendStop();
+        distance_cm = (datai2c[0]*16+datai2c[1])/64;//calculo de distancia
+    }else{
+        distance_cm =99;
+    }
+    return distance_cm;
+}
 
 
 void TurnRight(){
@@ -200,6 +259,9 @@ int main(void)
     //--- SENSOR---
     //DS_init(0x40);//Inicia sensor de distancia
     //--Sensor de puerta----
+    I2C_Start();
+    ISR_TIMER_StartEx(INTTIMER);
+    TIMER_Start();
     CyDelay(500);
     ISR_FOTO_StartEx(InterruptFoto);
     banderaDoor=false;
@@ -279,9 +341,29 @@ int main(void)
             banderaW=false;
             
         }
-            CyDelay(100);
+            
+        if(muestreo){
+            int sensor1=(int)DS_get_data(0x68);
+            int sensor2=(int)DS_get_data(0x68);
+            int sensor3=(int)DS_get_data(0x68);
+            int sensor4=(int)DS_get_data(0x68);
+            int sensor5=(int)DS_get_data(0x68);
+            n=n+1;
+            if(n==4){
+            n=0;
+            sprintf(buffer2,"%d\r\n",sensor1);
+        	UART_PutString(buffer2);
+            sprintf(buffer2,"%d\r\n",sensor2);
+        	UART_PutString(buffer2);
+            sprintf(buffer2,"%d\r\n",sensor3);
+        	UART_PutString(buffer2);
+            sprintf(buffer2,"%d\r\n",sensor4);
+        	UART_PutString(buffer2);
+            sprintf(buffer2,"%d\r\n",sensor5);
+        	UART_PutString(buffer2);
+            }
         }
 }
-
+}
 
 /* [] END OF FILE */

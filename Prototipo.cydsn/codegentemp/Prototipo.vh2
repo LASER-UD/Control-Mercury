@@ -2,7 +2,7 @@
 --	Conversion of Prototipo.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Jul 31 17:00:38 2019
+--	Wed Jul 31 18:34:57 2019
 --
 
 USE cypress.cypress.all;
@@ -1585,6 +1585,16 @@ SIGNAL tmpOE__INFRA_net_0 : bit;
 SIGNAL tmpFB_0__INFRA_net_0 : bit;
 SIGNAL tmpIO_0__INFRA_net_0 : bit;
 TERMINAL tmpSIOVREF__INFRA_net_0 : bit;
+SIGNAL Net_12 : bit;
+SIGNAL Net_42 : bit;
+SIGNAL \TIMER:Net_260\ : bit;
+SIGNAL \TIMER:Net_266\ : bit;
+SIGNAL \TIMER:Net_51\ : bit;
+SIGNAL \TIMER:Net_261\ : bit;
+SIGNAL \TIMER:Net_57\ : bit;
+SIGNAL Net_2221 : bit;
+SIGNAL Net_2226 : bit;
+SIGNAL \TIMER:Net_102\ : bit;
 SIGNAL \PWM_Motores_P:PWMUDB:min_kill_reg\\D\ : bit;
 SIGNAL \PWM_Motores_P:PWMUDB:prevCapture\\D\ : bit;
 SIGNAL \PWM_Motores_P:PWMUDB:trig_last\\D\ : bit;
@@ -3959,6 +3969,30 @@ INFRA:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>Net_3);
+\TIMER:TimerHW\:cy_psoc3_timer_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_42,
+		kill=>zero,
+		enable=>one,
+		capture=>zero,
+		timer_reset=>zero,
+		tc=>Net_2226,
+		compare=>\TIMER:Net_261\,
+		interrupt=>\TIMER:Net_57\);
+ISR_TIMER:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_2226);
+Clock:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"9d15d1d7-797b-4487-ae5d-d673617589dc",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"100000000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_42,
+		dig_domain_out=>open);
 \PWM_Motores_P:PWMUDB:min_kill_reg\:cy_dsrff
 	PORT MAP(d=>one,
 		s=>zero,
