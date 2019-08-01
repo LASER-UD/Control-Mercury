@@ -95,9 +95,9 @@ void TurnRight(){
     IMPI_Write(2);
     IMAI_Write(2);
     PWM_Motores_A_WriteCompare1(100);
-    PWM_Motores_A_WriteCompare2(255);
+    PWM_Motores_A_WriteCompare2(150);
     PWM_Motores_P_WriteCompare1(100);
-    PWM_Motores_P_WriteCompare2(255);
+    PWM_Motores_P_WriteCompare2(150);
 }
 
 
@@ -107,11 +107,10 @@ void TurnLefth(){
     IMAD_Write(2);
     IMPI_Write(1);
     IMAI_Write(1);
-    PWM_Motores_A_WriteCompare1(255);
+    PWM_Motores_A_WriteCompare1(150);
     PWM_Motores_A_WriteCompare2(100);
-    PWM_Motores_P_WriteCompare1(255);
+    PWM_Motores_P_WriteCompare1(150);
     PWM_Motores_P_WriteCompare2(100);
-    
 }
 
 void Forward(){
@@ -166,12 +165,16 @@ CY_ISR(InterruptRx){
         }
          case '4':{
             //Adelante Fin
-            banderaPause=false;
+            velo=0;
+            banderaPause=true;
+            banderaSpeed=false;
             break;
         }
         case '5':{
             // Atras Fin
-            banderaPause=false;
+            velo=0;
+            banderaPause=true;
+            banderaSpeed=false;
             break;
         }
         case 'X':
@@ -267,16 +270,17 @@ int main(void)
     banderaDoor=false;
     for(;;)
     {
-        if(banderaSpeed){
+        if(banderaSpeed&&muestreo){
             if((velo<255)&&(!banderaPause)){
                 PWM_Motores_A_WriteCompare1(velo);
                 PWM_Motores_A_WriteCompare2(velo);
                 PWM_Motores_P_WriteCompare1(velo);
                 PWM_Motores_P_WriteCompare2(velo);
-                velo=velo+10;
+                velo=velo+5;
             }else{
                 banderaSpeed=false;
-            }  
+               // banderaPause=true;
+            }
         }
         
         if(banderaPause){
@@ -291,6 +295,7 @@ int main(void)
                 if(!banderaMax){
                     velo=105;
                 }
+                banderaPause=false;
         }
         
         
@@ -362,6 +367,7 @@ int main(void)
             sprintf(buffer2,"%d\r\n",sensor5);
         	UART_PutString(buffer2);
             }
+            muestreo=false;
         }
 }
 }
